@@ -1,4 +1,4 @@
-package hu.unideb.inf.appliences;
+package appliances;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -12,10 +12,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLAppliences.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLAppliances.fxml"));
         Scene scene = new Scene(loader.load());
 
-        stage.setTitle("Appliences");
+        stage.setTitle("Appliances");
         stage.setScene(scene);
         stage.show();
     }
