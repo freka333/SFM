@@ -1,2 +1,3 @@
+appliances\model\Appliance.class
 appliances\view\FXMLAppliancesController.class
 appliances\MainApp.class
