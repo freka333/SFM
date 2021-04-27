@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,23 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAppliancesController">
+<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAppliancesController">
    <children>
-      <AnchorPane fx:id="homePagePanel" prefHeight="533.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button fx:id="adminButton" layoutX="217.0" layoutY="166.0" mnemonicParsing="false" onAction="#adminButtonPushed" prefHeight="48.0" prefWidth="166.0" text="Admin">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="clientButton" layoutX="217.0" layoutY="299.0" mnemonicParsing="false" onAction="#clientButtonPushed" prefHeight="48.0" prefWidth="166.0" text="Kliens">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="adminPanel" prefHeight="533.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="adminPanel" prefHeight="533.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="147.0" layoutY="58.0" text="Új eszköz hozzáadása">
                <font>
@@ -48,12 +32,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
+                  <Label prefHeight="17.0" prefWidth="144.0" text="*ID">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                   <Label prefHeight="17.0" prefWidth="144.0" text="*Név" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Label prefHeight="17.0" prefWidth="144.0" text="*Kategória:" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="144.0" text="*Ár/nap" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -68,9 +62,9 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="17.0" prefWidth="144.0" text="*Ár/nap" GridPane.rowIndex="3">
+                  <Label fx:id="IDnumber" prefHeight="29.0" prefWidth="356.0" text="Label" GridPane.columnIndex="1">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                   <TextField fx:id="nameInput" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -98,16 +92,6 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Label prefHeight="17.0" prefWidth="144.0" text="*ID">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="IDnumber" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
                </children>
             </GridPane>
             <Button layoutX="232.0" layoutY="456.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="30.0" prefWidth="137.0" text="Mentés">
@@ -115,30 +99,8 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="495.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonPushed" text="🏠 Kezdőoldal" />
+            <Button fx:id="closeButton" layoutX="527.0" layoutY="20.0" mnemonicParsing="false" onAction="#closeButtonPushed" text="Vissza" />
          </children>
       </AnchorPane>
-      <TabPane fx:id="clientPanel" prefHeight="533.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <tabs>
-          <Tab text="Eszközök keresése">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="Bérelt eszközeim">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button layoutX="506.0" layoutY="446.0" mnemonicParsing="false" onAction="#exitButtonPushed" text="Kilépés">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
    </children>
 </AnchorPane>

@@ -9,23 +9,26 @@ import java.io.Serializable;
 
 /**
  *
- * @author User
+ * @author freka333
  */
 public class Appliance implements Serializable{
+    private String id;
     private String name;
     private String category;
     private int price;
     private String status;
     private String comment;
 
-    public Appliance(String name, String category, int price, String status) {
+    public Appliance(String id, String name, String category, int price, String status) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
         this.status = status;
     }
     
-    public Appliance(String name, String category, int price, String status, String comment) {
+    public Appliance(String id, String name, String category, int price, String status, String comment) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
@@ -33,6 +36,10 @@ public class Appliance implements Serializable{
         this.comment = comment;
     }
 
+    public String getId() {
+        return id;
+    }
+    
     public String getName() {
         return name;
     }

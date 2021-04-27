@@ -1,3 +1,7 @@
 appliances\model\Appliance.class
+appliances\view\FXMLUserPageController.class
+appliances\view\FXMLAdminPageController.class
 appliances\view\FXMLAppliancesController.class
+appliances\model\ApplianceModel.class
+appliances\view\FXMLLoginPageController.class
 appliances\MainApp.class
