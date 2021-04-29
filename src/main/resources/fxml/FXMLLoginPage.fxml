@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -15,20 +16,29 @@
             <Image url="@../img/vacuumCleaner.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="userNameInput" layoutX="213.0" layoutY="48.0" prefHeight="31.0" prefWidth="203.0" promptText="Felhasználónév">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <PasswordField fx:id="passwordInput" layoutX="213.0" layoutY="96.0" prefHeight="31.0" prefWidth="203.0" promptText="Jelszó">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </PasswordField>
-      <Button fx:id="loginButton" layoutX="237.0" layoutY="161.0" mnemonicParsing="false" onAction="#loginButtonPushed" prefHeight="39.0" prefWidth="155.0" style="-fx-background-color: #2207a8;" text="Bejelentkezés" textFill="#dedce8">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
+      <AnchorPane layoutX="40.0" layoutY="31.0" prefHeight="260.0" prefWidth="256.0" style="-fx-background-color: rgba(0,0,0,0.30); -fx-background-radius: 30px; -fx-border-radius: 30px;">
+         <children>
+            <Label alignment="CENTER" layoutX="45.0" layoutY="14.0" prefHeight="39.0" prefWidth="167.0" text="EzKöz-össég" textAlignment="CENTER" textFill="#160446">
+               <font>
+                  <Font name="Bauhaus 93" size="30.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userNameInput" layoutX="27.0" layoutY="82.0" prefHeight="31.0" prefWidth="203.0" promptText="Felhasználónév">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordInput" layoutX="27.0" layoutY="136.0" prefHeight="31.0" prefWidth="203.0" promptText="Jelszó">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="loginButton" layoutX="60.0" layoutY="186.0" mnemonicParsing="false" onAction="#loginButtonPushed" prefHeight="39.0" prefWidth="136.0" style="-fx-background-color: #2207a8; -fx-background-radius: 10px;" text="Bejelentkezés" textFill="#dedce8">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
