@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxWidth="655.0" minHeight="82.0" prefHeight="82.0" prefWidth="655.0" style="-fx-border-width: 1px; -fx-border-color: grey; -fx-border-radius: 10px; -fx-background-color: #e2e2e2; -fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLEditableItemController">
+   <children>
+      <Label fx:id="id" layoutX="8.0" layoutY="29.0" prefHeight="22.0" prefWidth="126.0" text="ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <padding>
+            <Insets right="2.0" top="2.0" />
+         </padding>
+      </Label>
+      <Label fx:id="name" layoutX="8.0" layoutY="5.0" prefHeight="21.0" prefWidth="297.0" text="Név">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="comment" layoutX="8.0" layoutY="55.0" prefHeight="21.0" prefWidth="529.0" text="Megjegyzés">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="category" layoutX="316.0" layoutY="5.0" prefHeight="21.0" prefWidth="225.0" text="Kategória">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status" layoutX="316.0" layoutY="30.0" prefHeight="21.0" prefWidth="225.0" text="Státusz">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" layoutX="156.0" layoutY="30.0" prefHeight="21.0" prefWidth="147.0" text="Ár">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="editButton" alignment="CENTER" contentDisplay="CENTER" layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#editButtonPushed" prefHeight="45.0" prefWidth="48.0" style="-fx-text-fill: white; -fx-background-color: #37a24e; -fx-background-radius: 10px 0px 0px 10px;" text="🖊">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteButton" layoutX="601.0" layoutY="18.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: #da422a; -fx-text-fill: white; -fx-background-radius: 0px 10px 10px 0px;" text="🗑">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</Pane>

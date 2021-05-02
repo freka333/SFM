@@ -1,4 +1,6 @@
 appliances\model\Appliance.class
+appliances\view\FXMLItemController.class
+appliances\view\FXMLEditableItemController.class
 appliances\view\FXMLUserPageController.class
 appliances\view\FXMLAdminPageController.class
 appliances\view\FXMLAppliancesController.class

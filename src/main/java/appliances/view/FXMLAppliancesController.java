@@ -7,6 +7,7 @@ package appliances.view;
 
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
+import static appliances.model.ApplianceModel.appliancesList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
