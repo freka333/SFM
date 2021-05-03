@@ -21,6 +21,7 @@ import java.util.logging.Logger;
  */
 public class ApplianceModel {
     public static List<Appliance> appliancesList = new ArrayList();
+    public static String currentId;
 
     public static boolean adminLoginCheck(String userName, String password){
         return userName.equals("admin") && password.equals("admin");
@@ -56,4 +57,5 @@ public class ApplianceModel {
                     id = Integer.parseInt(a.getId());
         return Integer.toString(id + 1);
     }
+
 }

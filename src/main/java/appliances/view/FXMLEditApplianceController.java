@@ -7,6 +7,8 @@ package appliances.view;
 
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
+import static appliances.model.ApplianceModel.appliancesList;
+import java.awt.SystemColor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +20,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -30,16 +31,15 @@ import javafx.stage.Stage;
  *
  * @author freka333
  */
-public class FXMLAppliancesController implements Initializable {
-    ApplianceModel model = new ApplianceModel();
-    
-    Appliance appliance;
-    
+public class FXMLEditApplianceController implements Initializable {    
     @FXML
     private AnchorPane adminPanel;
     
     @FXML
     private Label IDnumber;
+    
+    @FXML
+    private Label titleLabel;
     
     @FXML
     private TextField nameInput;
@@ -61,11 +61,11 @@ public class FXMLAppliancesController implements Initializable {
 
     @FXML
     void closeButtonPushed() {
-        nameInput.setText("");
+  /*      nameInput.setText("");
         categoryInput.setText("");
         priceInput.setText("");
         statusInput.setText("");
-        commentInput.setText("");
+        commentInput.setText("");*/
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
@@ -78,7 +78,7 @@ public class FXMLAppliancesController implements Initializable {
     }
     
     void errorAlert(String header, String content){
-        Alert alert = new Alert(AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Hiba!");
         alert.setHeaderText(header);
         alert.setContentText(content);
@@ -99,10 +99,17 @@ public class FXMLAppliancesController implements Initializable {
         else{
             try {
                 int price = Integer.parseInt(priceValue);
-                appliance = new Appliance(ID, nameTxt, catTxt, price, statusTxt, commentTxt);
-                ApplianceModel.appliancesList.add(appliance);
+                for(Appliance a : appliancesList)
+                    if(IDnumber.getText().equals(a.getId())){
+                        a.setName(nameTxt);
+                        a.setCategory(catTxt);
+                        a.setPrice(price);
+                        a.setStatus(statusTxt);
+                        a.setComment(commentTxt);
+                        break;
+                    }
                 ApplianceModel.serialisationList();
-                Alert alert = new Alert(AlertType.INFORMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Mentve");
                 alert.setHeaderText(null);
                 alert.setContentText(nameTxt + " sikeresen mentve!");
@@ -120,7 +127,17 @@ public class FXMLAppliancesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        IDnumber.setText(ApplianceModel.idGenerator());
-    }
+        IDnumber.setText(ApplianceModel.currentId);
+        for(Appliance a : appliancesList)
+            if(IDnumber.getText().equals(a.getId())){
+                titleLabel.setText(a.getName() + " szerkesztése");
+                nameInput.setText(a.getName());
+                categoryInput.setText(a.getCategory());
+                priceInput.setText(Integer.toString(a.getPrice()));
+                statusInput.setText(a.getStatus());
+                commentInput.setText(a.getComment());
+                break;
+            }
+    }   
     
 }

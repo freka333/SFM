@@ -1,15 +1,5 @@
 package appliances;
 
-import appliances.model.Appliance;
-import appliances.model.ApplianceModel;
-import appliances.view.FXMLAppliancesController;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +17,7 @@ public class MainApp extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        stage.setTitle("Appliances");
+        stage.setTitle("Eszköz-Össég bejelentkezési felület");
         
         stage.setScene(scene);
         stage.show();

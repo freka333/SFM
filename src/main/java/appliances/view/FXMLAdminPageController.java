@@ -44,6 +44,7 @@ public class FXMLAdminPageController implements Initializable {
     void newApplianceButtonPushed() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAppliances.fxml"));
         Stage window = (Stage) newApplianceButton.getScene().getWindow();
+        window.setTitle("Eszköz hozzáadása");
         window.setScene(new Scene(root));
     }
     
@@ -51,6 +52,7 @@ public class FXMLAdminPageController implements Initializable {
     void logoutButtonPushed() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLLoginPage.fxml"));
         Stage window = (Stage) logoutButton.getScene().getWindow();
+        window.setTitle("Eszköz-Össég bejelentkezési felület");
         window.setScene(new Scene(root));
     }
     

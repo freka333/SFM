@@ -11,24 +11,23 @@ import static appliances.model.ApplianceModel.appliancesList;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author User
+ * @author freka333
  */
 public class FXMLEditableItemController implements Initializable {
-    
-     @FXML
+    @FXML
     private Label id;
 
     @FXML
@@ -78,8 +77,12 @@ public class FXMLEditableItemController implements Initializable {
     }
 
     @FXML
-    void editButtonPushed() {
-
+    void editButtonPushed() throws IOException {
+        ApplianceModel.currentId = this.id.getText().substring(1);
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLEditAppliance.fxml"));
+        Stage window = (Stage) editButton.getScene().getWindow();
+        window.setTitle("Szerkesztés");
+        window.setScene(new Scene(root));
     }
     
 
