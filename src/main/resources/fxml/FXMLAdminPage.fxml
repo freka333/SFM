@@ -10,12 +10,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAdminPageController">
    <children>
-      <Label contentDisplay="CENTER" layoutX="295.0" layoutY="13.0" text="Eszközök" textAlignment="CENTER">
+      <Label contentDisplay="CENTER" layoutX="391.0" layoutY="15.0" text="Eszközök" textAlignment="CENTER">
          <font>
-            <Font size="25.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="newApplianceButton" layoutX="580.0" layoutY="16.0" mnemonicParsing="false" onAction="#newApplianceButtonPushed" style="-fx-background-color: #87b3fc; -fx-background-radius: 20px; -fx-border-color: grey; -fx-border-radius: 20px; bord: ;" text="+ Új eszköz">
+      <Button fx:id="newApplianceButton" layoutX="121.0" layoutY="16.0" mnemonicParsing="false" onAction="#newApplianceButtonPushed" style="-fx-background-color: #87b3fc; -fx-background-radius: 20px; -fx-border-color: grey; -fx-border-radius: 20px;" text="+ Új eszköz">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
@@ -29,5 +29,10 @@
             </ScrollPane>
          </children>
       </Pane>
+      <Button fx:id="refreshButton" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#refreshButtonPushed" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #ffff89; -fx-background-radius: 20px; -fx-border-color: grey; -fx-border-radius: 20px;" text="🗘 Frissítés">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

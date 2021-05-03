@@ -6,10 +6,18 @@
 package appliances.view;
 
 import appliances.model.Appliance;
+import appliances.model.ApplianceModel;
+import static appliances.model.ApplianceModel.appliancesList;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -55,7 +63,18 @@ public class FXMLEditableItemController implements Initializable {
 
     @FXML
     void deleteButtonPushed() {
-
+        for(Appliance a : appliancesList)
+            if(this.id.getText().substring(1).equals(a.getId())){
+                appliancesList.remove(a);
+                break;
+            }
+        ApplianceModel.serialisationList();
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Törölve!");
+        alert.setHeaderText(null);
+        alert.setContentText("Az elem törölve, kérlek, frissítsd a táblázatot!");
+        alert.showAndWait();
     }
 
     @FXML

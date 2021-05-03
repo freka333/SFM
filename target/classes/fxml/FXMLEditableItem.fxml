@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxWidth="655.0" minHeight="82.0" prefHeight="82.0" prefWidth="655.0" style="-fx-border-width: 1px; -fx-border-color: grey; -fx-border-radius: 10px; -fx-background-color: #e2e2e2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLEditableItemController">
+<Pane maxWidth="655.0" minHeight="82.0" prefHeight="82.0" prefWidth="655.0" style="-fx-border-width: 1px; -fx-border-color: grey; -fx-border-radius: 10px; -fx-background-color: #e2e2e2; -fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLEditableItemController">
    <children>
       <Label fx:id="id" layoutX="8.0" layoutY="29.0" prefHeight="22.0" prefWidth="126.0" text="ID">
          <font>

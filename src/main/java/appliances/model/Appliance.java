@@ -82,6 +82,6 @@ public class Appliance implements Serializable{
 
     @Override
     public String toString() {
-        return "Appliance{" + "name=" + name + ", category=" + category + ", status=" + status + ", price=" + price + ", comment=" + comment + '}';
+        return "Appliance{" + "id=" + id + ", name=" + name + ", category=" + category + ", status=" + status + ", price=" + price + ", comment=" + comment + '}';
     }
 }

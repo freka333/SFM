@@ -35,6 +35,9 @@ public class FXMLAdminPageController implements Initializable {
     private Button logoutButton;
     
     @FXML
+    private Button refreshButton;
+    
+    @FXML
     private VBox itemsLayout;
     
     @FXML
@@ -50,12 +53,14 @@ public class FXMLAdminPageController implements Initializable {
         Stage window = (Stage) logoutButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
- 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    
+    @FXML
+    void refreshButtonPushed() {
+        update();
+    }
+    
+    public void update(){
+        itemsLayout.getChildren().clear();
         for(Appliance a : appliancesList){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
@@ -69,6 +74,14 @@ public class FXMLAdminPageController implements Initializable {
                 Logger.getLogger(FXMLAdminPageController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+ 
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        update();
     }    
     
 }
