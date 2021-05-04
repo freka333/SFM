@@ -108,7 +108,7 @@ public class FXMLEditApplianceController implements Initializable {
                         a.setComment(commentTxt);
                         break;
                     }
-                ApplianceModel.serialisationList();
+                ApplianceModel.applianceSerialisation();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Mentve");
                 alert.setHeaderText(null);

@@ -101,7 +101,7 @@ public class FXMLAppliancesController implements Initializable {
                 int price = Integer.parseInt(priceValue);
                 appliance = new Appliance(ID, nameTxt, catTxt, price, statusTxt, commentTxt);
                 ApplianceModel.appliancesList.add(appliance);
-                ApplianceModel.serialisationList();
+                ApplianceModel.applianceSerialisation();
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Mentve");
                 alert.setHeaderText(null);

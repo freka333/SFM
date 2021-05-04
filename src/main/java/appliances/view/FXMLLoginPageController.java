@@ -63,7 +63,7 @@ public class FXMLLoginPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ApplianceModel.deserialisation();
+        ApplianceModel.applianceDeserialisation();
         for(Appliance a : ApplianceModel.appliancesList){
             System.out.println(a);
         }

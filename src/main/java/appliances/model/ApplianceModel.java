@@ -31,7 +31,7 @@ public class ApplianceModel {
         return userName.equals("user") && password.equals("user");
     }
 
-    public static void serialisationList(){
+    public static void applianceSerialisation(){
         try (FileOutputStream fs = new FileOutputStream("files/appliances.ser");
              ObjectOutputStream os = new ObjectOutputStream(fs);) {
             os.writeObject(appliancesList);
@@ -40,10 +40,10 @@ public class ApplianceModel {
         }
     }
     
-    public static void deserialisation(){
+    public static void applianceDeserialisation(){
         try (FileInputStream fs = new FileInputStream("files/appliances.ser");
              ObjectInputStream os = new ObjectInputStream(fs);) {
-            ApplianceModel.appliancesList = (List<Appliance>)os.readObject();
+            appliancesList = (List<Appliance>)os.readObject();
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ApplianceModel.class.getName()).log(Level.SEVERE, null, ex);
         }

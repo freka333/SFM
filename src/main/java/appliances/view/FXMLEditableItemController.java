@@ -67,7 +67,7 @@ public class FXMLEditableItemController implements Initializable {
                 appliancesList.remove(a);
                 break;
             }
-        ApplianceModel.serialisationList();
+        ApplianceModel.applianceSerialisation();
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Törölve!");
