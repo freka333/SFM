@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
@@ -13,14 +14,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -68,12 +64,7 @@ public class FXMLEditableItemController implements Initializable {
                 appliancesList.remove(a);
                 break;
             }
-        
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Törölve!");
-        alert.setHeaderText(null);
-        alert.setContentText("Az elem törölve, kérlek, frissítsd a táblázatot!");
-        alert.showAndWait();
+        infoAlert("Törölve!", null, "Az elem törölve, kérlek, frissítsd a táblázatot!");
     }
 
     @FXML

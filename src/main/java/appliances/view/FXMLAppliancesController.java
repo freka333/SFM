@@ -5,6 +5,9 @@
  */
 package appliances.view;
 
+import appliances.Dialogs;
+import static appliances.Dialogs.errorAlert;
+import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
@@ -14,8 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -59,14 +60,6 @@ public class FXMLAppliancesController implements Initializable {
     void closeButtonPushed() throws Exception {
         MainApp.setRoot("FXMLAdminPage");
     }
-    
-    void errorAlert(String header, String content){
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Hiba!");
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
 
     @FXML
     void saveButtonPushed() {
@@ -84,11 +77,7 @@ public class FXMLAppliancesController implements Initializable {
                 int price = Integer.parseInt(priceValue);
                 appliance = new Appliance(ID, nameTxt, catTxt, price, statusTxt, commentTxt);
                 ApplianceModel.appliancesList.add(appliance);
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Mentve");
-                alert.setHeaderText(null);
-                alert.setContentText(nameTxt + " sikeresen mentve!");
-                alert.showAndWait();
+                infoAlert("Mentve", null, nameTxt + " sikeresen mentve!");
                 closeButtonPushed();
             } catch (NumberFormatException ex) {
                 errorAlert("Hibás érték!", "Az ár csak egész szám lehet!");

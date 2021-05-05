@@ -5,18 +5,14 @@
  */
 package appliances.view;
 
+import static appliances.Dialogs.errorAlert;
 import appliances.LoginCheck;
 import appliances.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -49,10 +45,7 @@ public class FXMLLoginPageController implements Initializable {
             MainApp.setRoot("FXMLUserPage");
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hiba!");
-            alert.setHeaderText("Hibás felhasználónév vagy jelszó!");
-            alert.showAndWait();
+            errorAlert("Hibás felhasználónév vagy jelszó!", null);
         }
     }
     

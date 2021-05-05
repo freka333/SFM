@@ -1,6 +1,7 @@
 appliances\model\Appliance.class
 appliances\view\FXMLEditApplianceController.class
 appliances\view\FXMLRegistrationFormController.class
+appliances\Dialogs.class
 appliances\model\UserModel.class
 appliances\view\FXMLUserPageController.class
 appliances\view\FXMLAdminPageController.class
