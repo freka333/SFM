@@ -10,39 +10,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="450.0" prefHeight="291.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLLoginPageController">
+<AnchorPane id="AnchorPane" maxHeight="554.0" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLLoginPageController">
    <children>
-      <ImageView fitHeight="472.0" fitWidth="686.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="566.0" fitWidth="717.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/vacuumCleaner.jpg" />
+            <Image url="@../img/machine1.jpg" />
          </image>
          <viewport>
             <Rectangle2D width="700.0" />
          </viewport>
       </ImageView>
-      <AnchorPane layoutX="144.0" layoutY="43.0" prefHeight="276.0" prefWidth="256.0" style="-fx-background-color: rgba(0,0,0,0.30); -fx-background-radius: 30px; -fx-border-radius: 30px;">
+      <AnchorPane layoutX="361.0" layoutY="21.0" prefHeight="326.0" prefWidth="318.0" style="-fx-background-color: rgba(0,0,0,0.40); -fx-background-radius: 30px; -fx-border-radius: 30px;">
          <children>
-            <Label alignment="CENTER" layoutX="45.0" layoutY="14.0" prefHeight="39.0" prefWidth="167.0" text="EzKöz-össég" textAlignment="CENTER" textFill="#160446">
+            <Label alignment="CENTER" layoutX="57.0" layoutY="22.0" prefHeight="40.0" prefWidth="205.0" text="EszKöz-össég" textAlignment="CENTER" textFill="#e2e0ee">
                <font>
-                  <Font name="Bauhaus 93" size="30.0" />
+                  <Font name="Bauhaus 93" size="35.0" />
                </font>
             </Label>
-            <TextField fx:id="userNameInput" layoutX="27.0" layoutY="82.0" prefHeight="31.0" prefWidth="203.0" promptText="Felhasználónév">
+            <TextField fx:id="userNameInput" layoutX="47.0" layoutY="90.0" prefHeight="35.0" prefWidth="225.0" promptText="Felhasználónév">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="passwordInput" layoutX="27.0" layoutY="136.0" prefHeight="31.0" prefWidth="203.0" promptText="Jelszó">
+            <PasswordField fx:id="passwordInput" layoutX="47.0" layoutY="149.0" prefHeight="35.0" prefWidth="225.0" promptText="Jelszó">
                <font>
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <Button fx:id="loginButton" layoutX="60.0" layoutY="186.0" mnemonicParsing="false" onAction="#loginButtonPushed" prefHeight="39.0" prefWidth="136.0" style="-fx-background-color: #2207a8; -fx-background-radius: 10px;" text="Bejelentkezés" textFill="#dedce8">
+            <Button fx:id="loginButton" layoutX="74.0" layoutY="212.0" mnemonicParsing="false" onAction="#loginButtonPushed" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: #2207a8; -fx-background-radius: 10px;" text="Bejelentkezés" textFill="#dedce8">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="registrationButton" layoutX="88.0" layoutY="240.0" mnemonicParsing="false" onAction="#registrationButtonPushed" style="-fx-background-radius: 7px; -fx-background-color: rgba(0,0,0,0.0);" text="Regisztráció" textFill="#13045d" />
+            <Button fx:id="registrationButton" layoutX="99.0" layoutY="268.0" mnemonicParsing="false" onAction="#registrationButtonPushed" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 7px; -fx-background-color: rgba(0,0,0,0.0);" text="Regisztráció" textFill="#020e22">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </children>
