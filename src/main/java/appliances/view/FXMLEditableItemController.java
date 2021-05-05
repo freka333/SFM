@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import appliances.MainApp;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import static appliances.model.ApplianceModel.appliancesList;
@@ -78,10 +79,7 @@ public class FXMLEditableItemController implements Initializable {
     @FXML
     void editButtonPushed() throws IOException {
         ApplianceModel.currentId = this.id.getText().substring(1);
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLEditAppliance.fxml"));
-        Stage window = (Stage) editButton.getScene().getWindow();
-        window.setTitle("Szerkesztés");
-        window.setScene(new Scene(root));
+        MainApp.setRoot("FXMLEditAppliance");
     }
     
 

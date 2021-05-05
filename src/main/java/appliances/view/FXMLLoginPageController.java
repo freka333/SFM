@@ -6,6 +6,7 @@
 package appliances.view;
 
 import appliances.LoginCheck;
+import appliances.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -42,16 +43,10 @@ public class FXMLLoginPageController implements Initializable {
     void loginButtonPushed() throws Exception {
         String userType = LoginCheck.loginCheck(userNameInput.getText(), passwordInput.getText());
         if(userType.equals("admin")){
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
-            Stage window = (Stage) loginButton.getScene().getWindow();
-            window.setTitle("Admin felület");
-            window.setScene(new Scene(root));
+            MainApp.setRoot("FXMLAdminPage");
         }
         else if(userType.equals("ok")){
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLUserPage.fxml"));
-            Stage window = (Stage) loginButton.getScene().getWindow();
-            window.setTitle("Felhasználói felület");
-            window.setScene(new Scene(root));
+            MainApp.setRoot("FXMLUserPage");
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);

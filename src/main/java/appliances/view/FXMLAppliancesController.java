@@ -5,25 +5,21 @@
  */
 package appliances.view;
 
+import appliances.MainApp;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -60,21 +56,8 @@ public class FXMLAppliancesController implements Initializable {
     private Button closeButton;
 
     @FXML
-    void closeButtonPushed() {
-        nameInput.setText("");
-        categoryInput.setText("");
-        priceInput.setText("");
-        statusInput.setText("");
-        commentInput.setText("");
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
-            Stage window = (Stage) closeButton.getScene().getWindow();
-            window.setTitle("Admin felület");
-            window.setScene(new Scene(root));
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLAppliancesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    void closeButtonPushed() throws Exception {
+        MainApp.setRoot("FXMLAdminPage");
     }
     
     void errorAlert(String header, String content){
@@ -109,6 +92,8 @@ public class FXMLAppliancesController implements Initializable {
                 closeButtonPushed();
             } catch (NumberFormatException ex) {
                 errorAlert("Hibás érték!", "Az ár csak egész szám lehet!");
+            } catch (Exception ex) {
+                Logger.getLogger(FXMLAppliancesController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -120,6 +105,11 @@ public class FXMLAppliancesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         IDnumber.setText(ApplianceModel.idGenerator());
+        nameInput.setText("");
+        categoryInput.setText("");
+        priceInput.setText("");
+        statusInput.setText("");
+        commentInput.setText("");
     }
     
 }

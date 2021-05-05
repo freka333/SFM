@@ -3,6 +3,7 @@ package appliances;
 import static appliances.SerializationManagement.*;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
+import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,8 @@ import javafx.stage.Stage;
 
 
 public class MainApp extends Application {
+    
+    private static Scene scene;
     
     @Override
     public void init()throws Exception{
@@ -29,14 +32,19 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLLoginPage.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        stage.setTitle("Eszköz-Össég bejelentkezési felület");
-        
+        scene = new Scene(loadFXML("FXMLLoginPage"));
+        stage.setTitle("Eszköz-Össég");        
         stage.setScene(scene);
         stage.show();
+    }
+    
+    public static void setRoot(String fxml) throws IOException{
+        scene.setRoot(loadFXML(fxml));
+    }
+    
+    private static Parent loadFXML(String fxml) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/" + fxml + ".fxml"));
+        return fxmlLoader.load();
     }
 
     /**

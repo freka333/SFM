@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import appliances.MainApp;
 import appliances.model.Appliance;
 import static appliances.model.ApplianceModel.appliancesList;
 import java.io.IOException;
@@ -15,11 +16,8 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -42,18 +40,12 @@ public class FXMLAdminPageController implements Initializable {
     
     @FXML
     void newApplianceButtonPushed() throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAppliances.fxml"));
-        Stage window = (Stage) newApplianceButton.getScene().getWindow();
-        window.setTitle("Eszköz hozzáadása");
-        window.setScene(new Scene(root));
+        MainApp.setRoot("FXMLAppliances");
     }
     
     @FXML
     void logoutButtonPushed() throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLLoginPage.fxml"));
-        Stage window = (Stage) logoutButton.getScene().getWindow();
-        window.setTitle("Eszköz-Össég bejelentkezési felület");
-        window.setScene(new Scene(root));
+        MainApp.setRoot("FXMLLoginPage");
     }
     
     @FXML
@@ -66,7 +58,6 @@ public class FXMLAdminPageController implements Initializable {
         for(Appliance a : appliancesList){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
-            
             try {
                 Pane pane = loader.load();
                 FXMLEditableItemController eic = loader.getController();
