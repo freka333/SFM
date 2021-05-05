@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import static appliances.SerializationManagement.applianceSerialisation;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import java.io.IOException;
@@ -101,7 +102,7 @@ public class FXMLAppliancesController implements Initializable {
                 int price = Integer.parseInt(priceValue);
                 appliance = new Appliance(ID, nameTxt, catTxt, price, statusTxt, commentTxt);
                 ApplianceModel.appliancesList.add(appliance);
-                ApplianceModel.applianceSerialisation();
+                applianceSerialisation();
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Mentve");
                 alert.setHeaderText(null);

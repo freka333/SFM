@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import static appliances.SerializationManagement.applianceSerialisation;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import static appliances.model.ApplianceModel.appliancesList;
@@ -67,7 +68,7 @@ public class FXMLEditableItemController implements Initializable {
                 appliancesList.remove(a);
                 break;
             }
-        ApplianceModel.applianceSerialisation();
+        applianceSerialisation();
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Törölve!");

@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import appliances.LoginCheck;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import java.net.URL;
@@ -37,8 +38,30 @@ public class FXMLLoginPageController implements Initializable {
     private Button loginButton;
     
     @FXML
+    private Button registrationButton;
+    
+    @FXML
     void loginButtonPushed() throws Exception {
-        if(ApplianceModel.adminLoginCheck(userNameInput.getText(),passwordInput.getText())){
+        String userType = LoginCheck.loginCheck(userNameInput.getText(), passwordInput.getText());
+        if(userType.equals("admin")){
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
+            Stage window = (Stage) loginButton.getScene().getWindow();
+            window.setTitle("Admin felület");
+            window.setScene(new Scene(root));
+        }
+        else if(userType.equals("ok")){
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLUserPage.fxml"));
+            Stage window = (Stage) loginButton.getScene().getWindow();
+            window.setTitle("Felhasználói felület");
+            window.setScene(new Scene(root));
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hiba!");
+            alert.setHeaderText("Hibás felhasználónév vagy jelszó!");
+            alert.showAndWait();
+        }
+            /*if(ApplianceModel.adminLoginCheck(userNameInput.getText(),passwordInput.getText())){
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
             Stage window = (Stage) loginButton.getScene().getWindow();
             window.setTitle("Admin felület");
@@ -55,7 +78,12 @@ public class FXMLLoginPageController implements Initializable {
             alert.setTitle("Hiba!");
             alert.setHeaderText("Hibás felhasználónév vagy jelszó!");
             alert.showAndWait();
-        }
+        }*/
+    }
+    
+    @FXML
+    void registrationButtonPushed() {
+        
     }
 
     /**
@@ -63,9 +91,6 @@ public class FXMLLoginPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ApplianceModel.applianceDeserialisation();
-        for(Appliance a : ApplianceModel.appliancesList){
-            System.out.println(a);
-        }
+        
     }
 }

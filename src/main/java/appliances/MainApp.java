@@ -1,5 +1,9 @@
 package appliances;
 
+import static appliances.SerializationManagement.applianceDeserialisation;
+import static appliances.SerializationManagement.userDeserialisation;
+import appliances.model.Appliance;
+import appliances.model.ApplianceModel;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +16,11 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        
+        applianceDeserialisation();
+        for(Appliance a : ApplianceModel.appliancesList){
+            System.out.println(a);
+        }
+        userDeserialisation();
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLLoginPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);

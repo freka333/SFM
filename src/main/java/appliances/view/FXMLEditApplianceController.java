@@ -5,6 +5,7 @@
  */
 package appliances.view;
 
+import static appliances.SerializationManagement.applianceSerialisation;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import static appliances.model.ApplianceModel.appliancesList;
@@ -61,11 +62,6 @@ public class FXMLEditApplianceController implements Initializable {
 
     @FXML
     void closeButtonPushed() {
-  /*      nameInput.setText("");
-        categoryInput.setText("");
-        priceInput.setText("");
-        statusInput.setText("");
-        commentInput.setText("");*/
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
@@ -108,7 +104,7 @@ public class FXMLEditApplianceController implements Initializable {
                         a.setComment(commentTxt);
                         break;
                     }
-                ApplianceModel.applianceSerialisation();
+                applianceSerialisation();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Mentve");
                 alert.setHeaderText(null);

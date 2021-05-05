@@ -5,15 +5,8 @@
  */
 package appliances.model;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +15,7 @@ import java.util.logging.Logger;
 public class ApplianceModel {
     public static List<Appliance> appliancesList = new ArrayList();
     public static String currentId;
-
+    
     public static boolean adminLoginCheck(String userName, String password){
         return userName.equals("admin") && password.equals("admin");
     }
@@ -31,23 +24,7 @@ public class ApplianceModel {
         return userName.equals("user") && password.equals("user");
     }
 
-    public static void applianceSerialisation(){
-        try (FileOutputStream fs = new FileOutputStream("files/appliances.ser");
-             ObjectOutputStream os = new ObjectOutputStream(fs);) {
-            os.writeObject(appliancesList);
-        } catch (IOException ex){
-            Logger.getLogger(ApplianceModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
-    public static void applianceDeserialisation(){
-        try (FileInputStream fs = new FileInputStream("files/appliances.ser");
-             ObjectInputStream os = new ObjectInputStream(fs);) {
-            appliancesList = (List<Appliance>)os.readObject();
-        } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(ApplianceModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
     public static String idGenerator(){
         int id = 0;

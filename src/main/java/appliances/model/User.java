@@ -8,23 +8,32 @@ package appliances.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
  * @author freka333
  */
 public class User implements Serializable{
-    private String userName;
-    private String password;
+    private StringProperty userName = new SimpleStringProperty();
+    private StringProperty password = new SimpleStringProperty();
     private List<Appliance> reservedAppliances = new ArrayList();
     private List<Appliance> myAppliances = new ArrayList();
+    
+    public User(String userName, String password, List<Appliance> reservedApp, List<Appliance>myApp){
+        this.userName.set(userName);
+        this.password.set(password);
+        this.reservedAppliances = reservedApp;
+        this.myAppliances = myApp;
+    }
 
     public String getUserName() {
-        return userName;
+        return userName.get();
     }
 
     public String getPassword() {
-        return password;
+        return password.get();
     }
 
     public List<Appliance> getReservedAppliances() {
@@ -36,11 +45,11 @@ public class User implements Serializable{
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName.set(userName);
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password.set(password);
     }
 
     public void setReservedAppliances(List<Appliance> reservedAppliances) {
@@ -49,6 +58,14 @@ public class User implements Serializable{
 
     public void setMyAppliances(List<Appliance> myAppliances) {
         this.myAppliances = myAppliances;
+    }
+    
+    public StringProperty nameProperty(){
+        return userName;
+    }
+    
+    public StringProperty passwordProperty(){
+        return password;
     }
 
     @Override

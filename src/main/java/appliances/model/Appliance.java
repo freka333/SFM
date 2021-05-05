@@ -18,14 +18,6 @@ public class Appliance implements Serializable{
     private int price;
     private String status;
     private String comment;
-
-    public Appliance(String id, String name, String category, int price, String status) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.status = status;
-    }
     
     public Appliance(String id, String name, String category, int price, String status, String comment) {
         this.id = id;

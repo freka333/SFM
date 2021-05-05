@@ -1,10 +1,14 @@
 appliances\model\Appliance.class
 appliances\view\FXMLEditApplianceController.class
+appliances\LoginCheck.class
+appliances\model\UserModel.class
 appliances\view\FXMLItemController.class
 appliances\view\FXMLEditableItemController.class
 appliances\view\FXMLUserPageController.class
 appliances\view\FXMLAdminPageController.class
 appliances\view\FXMLAppliancesController.class
 appliances\model\ApplianceModel.class
+appliances\SerializationManagement.class
+appliances\model\User.class
 appliances\view\FXMLLoginPageController.class
 appliances\MainApp.class
