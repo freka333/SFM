@@ -61,24 +61,6 @@ public class FXMLLoginPageController implements Initializable {
             alert.setHeaderText("Hibás felhasználónév vagy jelszó!");
             alert.showAndWait();
         }
-            /*if(ApplianceModel.adminLoginCheck(userNameInput.getText(),passwordInput.getText())){
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLAdminPage.fxml"));
-            Stage window = (Stage) loginButton.getScene().getWindow();
-            window.setTitle("Admin felület");
-            window.setScene(new Scene(root));
-        }
-        else if(ApplianceModel.userLoginCheck(userNameInput.getText(),passwordInput.getText())){
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLUserPage.fxml"));
-            Stage window = (Stage) loginButton.getScene().getWindow();
-            window.setTitle("Felhasználói felület");
-            window.setScene(new Scene(root));
-        }
-        else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hiba!");
-            alert.setHeaderText("Hibás felhasználónév vagy jelszó!");
-            alert.showAndWait();
-        }*/
     }
     
     @FXML
