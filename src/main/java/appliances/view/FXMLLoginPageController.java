@@ -6,8 +6,6 @@
 package appliances.view;
 
 import appliances.LoginCheck;
-import appliances.model.Appliance;
-import appliances.model.ApplianceModel;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

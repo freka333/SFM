@@ -5,11 +5,9 @@
  */
 package appliances.view;
 
-import static appliances.SerializationManagement.applianceSerialisation;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import static appliances.model.ApplianceModel.appliancesList;
-import java.awt.SystemColor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -104,7 +102,6 @@ public class FXMLEditApplianceController implements Initializable {
                         a.setComment(commentTxt);
                         break;
                     }
-                applianceSerialisation();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Mentve");
                 alert.setHeaderText(null);
