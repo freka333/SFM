@@ -71,7 +71,7 @@ public class SerializationManagement {
             }
         }
         else{
-            appliancesList.add(new Appliance("1", "Porszívó", "háztartási eszköz", 2000, "bérelhető", ""));
+            appliancesList.add(new Appliance("1", "admin", "Porszívó", "háztartási eszköz", 2000, "bérelhető", ""));
             applianceSerialisation();
         }
     }

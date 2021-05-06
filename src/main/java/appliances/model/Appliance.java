@@ -13,25 +13,31 @@ import java.io.Serializable;
  */
 public class Appliance implements Serializable{
     private String id;
+    private String owner;
     private String name;
     private String category;
     private int price;
     private String status;
     private String comment;
     
-    public Appliance(String id, String name, String category, int price, String status, String comment) {
+    public Appliance(String id, String owner, String name, String category, int price, String status, String comment) {
         this.id = id;
+        this.owner = owner;
         this.name = name;
         this.category = category;
         this.price = price;
         this.status = status;
         this.comment = comment;
     }
+    
+    public String getOwner(){
+        return owner;
+    }
 
     public String getId() {
         return id;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -39,7 +45,7 @@ public class Appliance implements Serializable{
     public String getCategory() {
         return category;
     }
-
+    
     public String getStatus() {
         return status;
     }
@@ -52,10 +58,13 @@ public class Appliance implements Serializable{
         return comment;
     }
 
+    public void setOwner(String owner){
+        this.owner = owner;
+    }
     public void setId(String id) {
         this.id = id;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -67,7 +76,7 @@ public class Appliance implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
     public void setPrice(int price) {
         this.price = price;
     }
@@ -78,6 +87,6 @@ public class Appliance implements Serializable{
 
     @Override
     public String toString() {
-        return "Appliance{" + "id=" + id + ", name=" + name + ", category=" + category + ", status=" + status + ", price=" + price + ", comment=" + comment + '}';
+        return "Appliance{" + "id=" + id + ", owner=" + owner + ", name=" + name + ", category=" + category + ", status=" + status + ", price=" + price + ", comment=" + comment + '}';
     }
 }

@@ -16,16 +16,6 @@ public class ApplianceModel {
     public static List<Appliance> appliancesList = new ArrayList();
     public static String currentId;
     
-    public static boolean adminLoginCheck(String userName, String password){
-        return userName.equals("admin") && password.equals("admin");
-    }
-    
-    public static boolean userLoginCheck(String userName, String password){
-        return userName.equals("user") && password.equals("user");
-    }
-
-    
-    
     public static String idGenerator(){
         int id = 0;
         if(!appliancesList.isEmpty())
