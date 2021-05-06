@@ -48,6 +48,9 @@ public class FXMLEditableItemController implements Initializable {
     @FXML
     private Button deleteButton;
     
+    @FXML
+    private Button reserveButton;
+    
     public void setData(Appliance appliance){
         id.setText("#" + appliance.getId());
         name.setText(appliance.getName());
@@ -55,8 +58,23 @@ public class FXMLEditableItemController implements Initializable {
         status.setText(appliance.getStatus());
         price.setText(Integer.toString(appliance.getPrice()) + " Ft");
         comment.setText(appliance.getComment());
+        if(MainApp.activeUser.equals("admin")){
+            reserveButton.setVisible(false);
+            editButton.setVisible(true);
+            deleteButton.setVisible(true);
+        }
+        else{
+            reserveButton.setVisible(true);
+            editButton.setVisible(false);
+            deleteButton.setVisible(false);
+        }
     }
-
+    
+    @FXML
+    void reserveButtonPushed() {
+        
+    }
+    
     @FXML
     void deleteButtonPushed() {
         for(Appliance a : appliancesList)

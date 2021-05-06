@@ -59,14 +59,14 @@ public class FXMLUserPageController implements Initializable {
         for(Appliance a : appliancesList){
             if(a.getOwner().equals(MainApp.activeUser)){
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/FXMLItem.fxml"));
+                loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
                 try {
                     Pane pane = loader.load();
-                    FXMLItemController ic = loader.getController();
-                    ic.setData(a);
+                    FXMLEditableItemController eic = loader.getController();
+                    eic.setData(a);
                     itemsLayout.getChildren().add(pane);
                 } catch (IOException ex) {
-                    Logger.getLogger(FXMLAdminPageController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FXMLUserPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
