@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,48 +12,52 @@
 
 <AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLRegistrationFormController">
    <children>
-      <Label layoutX="229.0" layoutY="96.0" text="Felhasználói regisztráció">
+      <AnchorPane layoutX="100.0" layoutY="126.0" prefHeight="284.0" prefWidth="501.0" style="-fx-background-color: #A4E2C9; -fx-background-radius: 20px;">
+         <children>
+            <GridPane layoutX="10.0" layoutY="43.0" prefHeight="126.0" prefWidth="466.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="149.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="343.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="142.0" text="Felhasználónév:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="userNameField" prefHeight="31.0" prefWidth="236.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="142.0" text="Jelszó:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordField" prefHeight="31.0" prefWidth="330.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </GridPane>
+            <Button fx:id="registrationButton" layoutX="189.0" layoutY="201.0" mnemonicParsing="false" onAction="#registrationButtonPushed" text="Regisztráció">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="cancelButton" layoutX="623.0" layoutY="496.0" mnemonicParsing="false" onAction="#cancelButtonPushed" text="Mégse" />
+      <Label layoutX="215.0" layoutY="52.0" text="Felhasználói regisztráció">
          <font>
-            <Font name="System Bold" size="21.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <GridPane layoutX="97.0" layoutY="183.0" prefHeight="109.0" prefWidth="492.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="149.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="343.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="142.0" text="Felhasználónév:">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="userNameField" prefHeight="31.0" prefWidth="236.0" GridPane.columnIndex="1">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="142.0" text="Jelszó:" GridPane.rowIndex="1">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="passwordField" prefHeight="31.0" prefWidth="236.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-         </children>
-      </GridPane>
-      <Button fx:id="registrationButton" layoutX="301.0" layoutY="349.0" mnemonicParsing="false" onAction="#registrationButtonPushed" text="Regisztráció">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="cancelButton" layoutX="623.0" layoutY="496.0" mnemonicParsing="false" onAction="#cancelButtonPushed" text="Mégse" />
    </children>
 </AnchorPane>

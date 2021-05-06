@@ -3,6 +3,8 @@ package appliances;
 import static appliances.SerializationManagement.*;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
+import appliances.model.User;
+import static appliances.model.UserModel.userList;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
     
+    public static String activeUser;
     private static Scene scene;
     
     @Override
@@ -23,11 +26,16 @@ public class MainApp extends Application {
             System.out.println(a);
         }
         userDeserialisation();
+        System.out.println("users:");
+        for(User u : userList){
+            System.out.println(u);
+        }
     }
     
     @Override
     public void stop()throws Exception{
         applianceSerialisation();
+        userSerialisation();
     }
 
     @Override

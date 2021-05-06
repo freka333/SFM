@@ -57,7 +57,10 @@ public class FXMLAppliancesController implements Initializable {
 
     @FXML
     void closeButtonPushed() throws Exception {
-        MainApp.setRoot("FXMLAdminPage");
+        if(MainApp.activeUser.equals("admin"))
+            MainApp.setRoot("FXMLAdminPage");
+        else
+            MainApp.setRoot("FXMLUserPage");
     }
 
     @FXML
@@ -74,7 +77,7 @@ public class FXMLAppliancesController implements Initializable {
         else{
             try {
                 int price = Integer.parseInt(priceValue);
-                appliance = new Appliance(ID, "admin", nameTxt, catTxt, price, statusTxt, commentTxt);
+                appliance = new Appliance(ID, MainApp.activeUser, nameTxt, catTxt, price, statusTxt, commentTxt);
                 ApplianceModel.appliancesList.add(appliance);
                 infoAlert("Mentve", null, nameTxt + " sikeresen mentve!");
                 closeButtonPushed();
@@ -93,11 +96,6 @@ public class FXMLAppliancesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         IDnumber.setText(ApplianceModel.idGenerator());
-        nameInput.setText("");
-        categoryInput.setText("");
-        priceInput.setText("");
-        statusInput.setText("");
-        commentInput.setText("");
     }
     
 }

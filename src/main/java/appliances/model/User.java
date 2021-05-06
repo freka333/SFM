@@ -8,36 +8,40 @@ package appliances.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.util.Objects;
 
 /**
  *
  * @author freka333
  */
 public class User implements Serializable{
-    private StringProperty userName = new SimpleStringProperty();
-    private StringProperty password = new SimpleStringProperty();
-    private List<Appliance> reservedAppliances = new ArrayList();
+    private String userName;
+    private String password;
+    private List<Appliance> rentedAppliances = new ArrayList();
     private List<Appliance> myAppliances = new ArrayList();
     
-    public User(String userName, String password, List<Appliance> reservedApp, List<Appliance>myApp){
-        this.userName.set(userName);
-        this.password.set(password);
-        this.reservedAppliances = reservedApp;
+    public User(String userName, String password){
+        this.userName = userName;
+        this.password = password;
+    }
+    
+    public User(String userName, String password, List<Appliance> rentedApp, List<Appliance>myApp){
+        this.userName = userName;
+        this.password = password;
+        this.rentedAppliances = rentedApp;
         this.myAppliances = myApp;
     }
 
     public String getUserName() {
-        return userName.get();
+        return userName;
     }
 
     public String getPassword() {
-        return password.get();
+        return password;
     }
 
     public List<Appliance> getReservedAppliances() {
-        return reservedAppliances;
+        return rentedAppliances;
     }
 
     public List<Appliance> getMyAppliances() {
@@ -45,32 +49,50 @@ public class User implements Serializable{
     }
 
     public void setUserName(String userName) {
-        this.userName.set(userName);
+        this.userName = userName;
     }
 
     public void setPassword(String password) {
-        this.password.set(password);
+        this.password = password;
     }
 
     public void setReservedAppliances(List<Appliance> reservedAppliances) {
-        this.reservedAppliances = reservedAppliances;
+        this.rentedAppliances = reservedAppliances;
     }
 
     public void setMyAppliances(List<Appliance> myAppliances) {
         this.myAppliances = myAppliances;
     }
-    
-    public StringProperty nameProperty(){
-        return userName;
-    }
-    
-    public StringProperty passwordProperty(){
-        return password;
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (!Objects.equals(this.userName, other.userName)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
+    @Override
     public String toString() {
-        return "User{" + "userName=" + userName + ", password=" + password + ", reservedAppliances=" + reservedAppliances + ", myAppliances=" + myAppliances + '}';
+        return "User{" + "userName=" + userName + ", password=" + password + ", reservedAppliances=" + rentedAppliances + ", myAppliances=" + myAppliances + '}';
     }
     
     

@@ -8,6 +8,7 @@ package appliances.view;
 import static appliances.Dialogs.errorAlert;
 import appliances.LoginCheck;
 import appliances.MainApp;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -37,12 +38,9 @@ public class FXMLLoginPageController implements Initializable {
     
     @FXML
     void loginButtonPushed() throws Exception {
-        String userType = LoginCheck.loginCheck(userNameInput.getText(), passwordInput.getText());
-        if(userType.equals("admin")){
-            MainApp.setRoot("FXMLAdminPage");
-        }
-        else if(userType.equals("ok")){
-            MainApp.setRoot("FXMLUserPage");
+        String page = LoginCheck.loginCheck(userNameInput.getText(), passwordInput.getText());
+        if(!page.equals("error")){
+            MainApp.setRoot(page);
         }
         else{
             errorAlert("Hibás felhasználónév vagy jelszó!", null);
@@ -50,8 +48,8 @@ public class FXMLLoginPageController implements Initializable {
     }
     
     @FXML
-    void registrationButtonPushed() {
-        
+    void registrationButtonPushed() throws IOException {
+        MainApp.setRoot("FXMLRegistrationForm");
     }
 
     /**

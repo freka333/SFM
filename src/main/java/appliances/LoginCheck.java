@@ -14,12 +14,16 @@ import static appliances.model.UserModel.userList;
  */
 public class LoginCheck {
     public static String loginCheck(String userName, String password){
-        if(userName.equals("admin") && password.equals("admin"))
-            return "admin";
+        if(userName.equals("admin") && password.equals("admin")){
+            MainApp.activeUser = userName;
+            return "FXMLAdminPage";
+        }
         else{
             for(User u : userList){
-                if(userName.equals(u.getUserName()) && password.equals(u.getPassword()))
-                    return "ok";
+                if(userName.equals(u.getUserName()) && password.equals(u.getPassword())){
+                    MainApp.activeUser = userName;
+                    return "FXMLUserPage";
+                }
             }
             return "error";
         }

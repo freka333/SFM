@@ -13,6 +13,7 @@ import java.util.List;
  * @author freka333
  */
 public class UserModel {
+    public static List<User> userList = new ArrayList();
     private User user;
     
     public UserModel(String userName, String password, List<Appliance> reservedApp, List<Appliance>myApp){
@@ -26,7 +27,4 @@ public class UserModel {
     public void setUser(User user) {
         this.user = user;
     }
-    
-    
-    public static List<User> userList = new ArrayList();
 }

@@ -47,7 +47,9 @@ public class SerializationManagement {
             }
         }
         else{
-            userList.add(new User("user1", "user1", new ArrayList(), new ArrayList()));
+            userList.add(new User("user1", "user1"));
+            userList.add(new User("user2", "user2"));
+            userList.add(new User("admin", "admin"));
         }
     }
     
