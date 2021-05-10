@@ -4,7 +4,7 @@ import static appliances.SerializationManagement.*;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import appliances.model.User;
-import static appliances.model.UserModel.userList;
+import appliances.model.UserModel;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -15,8 +15,8 @@ import javafx.stage.Stage;
 
 
 public class MainApp extends Application {
-    
-    public static String activeUser;
+
+    public static UserModel userList;
     private static Scene scene;
     
     @Override
@@ -25,9 +25,10 @@ public class MainApp extends Application {
         for(Appliance a : ApplianceModel.appliancesList){
             System.out.println(a);
         }
+        userList = new UserModel();
         userDeserialisation();
         System.out.println("users:");
-        for(User u : userList){
+        for(User u : userList.getUserList()){
             System.out.println(u);
         }
     }

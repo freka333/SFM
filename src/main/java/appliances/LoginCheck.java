@@ -5,8 +5,8 @@
  */
 package appliances;
 
+import static appliances.MainApp.userList;
 import appliances.model.User;
-import static appliances.model.UserModel.userList;
 
 /**
  *
@@ -15,13 +15,13 @@ import static appliances.model.UserModel.userList;
 public class LoginCheck {
     public static String loginCheck(String userName, String password){
         if(userName.equals("admin") && password.equals("admin")){
-            MainApp.activeUser = userName;
+            userList.setActiveUser(userName);
             return "FXMLAdminPage";
         }
         else{
-            for(User u : userList){
+            for(User u : userList.getUserList()){
                 if(userName.equals(u.getUserName()) && password.equals(u.getPassword())){
-                    MainApp.activeUser = userName;
+                    userList.setActiveUser(userName);
                     return "FXMLUserPage";
                 }
             }

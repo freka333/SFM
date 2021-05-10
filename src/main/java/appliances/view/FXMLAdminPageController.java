@@ -6,6 +6,7 @@
 package appliances.view;
 
 import appliances.MainApp;
+import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import static appliances.model.ApplianceModel.appliancesList;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class FXMLAdminPageController implements Initializable {
     public void update(){
         itemsLayout.getChildren().clear();
         for(Appliance a : appliancesList){
-            if(a.getOwner().equals(MainApp.activeUser)){
+            if(a.getOwner().equals(userList.getActiveUser())){
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
                 try {

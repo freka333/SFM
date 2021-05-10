@@ -13,18 +13,27 @@ import java.util.List;
  * @author freka333
  */
 public class UserModel {
-    public static List<User> userList = new ArrayList();
-    private User user;
+    private List<User> userList = new ArrayList();    
+    private String activeUser = "";
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
     
-    public UserModel(String userName, String password, List<Appliance> reservedApp, List<Appliance>myApp){
-        this.user = new User(userName, password, reservedApp, myApp);
+    public String getActiveUser() {
+        return activeUser;
     }
 
-    public User getUser() {
-        return user;
+    public void setActiveUser(String user) {
+        this.activeUser = user;
+    }
+    
+    public void addUser(User user) {
+        this.userList.add(user);
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

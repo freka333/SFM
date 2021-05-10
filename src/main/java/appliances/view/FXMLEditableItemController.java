@@ -7,6 +7,7 @@ package appliances.view;
 
 import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
+import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import static appliances.model.ApplianceModel.appliancesList;
@@ -58,7 +59,7 @@ public class FXMLEditableItemController implements Initializable {
         status.setText(appliance.getStatus());
         price.setText(Integer.toString(appliance.getPrice()) + " Ft");
         comment.setText(appliance.getComment());
-        if(MainApp.activeUser.equals("admin")){
+        if(userList.getActiveUser().equals("admin")){
             reserveButton.setVisible(false);
             editButton.setVisible(true);
             deleteButton.setVisible(true);

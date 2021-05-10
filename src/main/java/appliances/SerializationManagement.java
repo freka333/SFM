@@ -5,12 +5,12 @@
  */
 package appliances;
 
+import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import static appliances.model.ApplianceModel.appliancesList;
 import appliances.model.User;
 import appliances.model.UserModel;
-import static appliances.model.UserModel.userList;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,7 +30,7 @@ public class SerializationManagement {
     public static void userSerialisation(){
         try (FileOutputStream fs = new FileOutputStream("files/users.ser");
              ObjectOutputStream os = new ObjectOutputStream(fs);) {
-            os.writeObject(userList);
+            os.writeObject(userList.getUserList());
         } catch (IOException ex){
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -41,15 +41,15 @@ public class SerializationManagement {
         if(tempFile.exists()){
             try (FileInputStream fs = new FileInputStream("files/users.ser");
                  ObjectInputStream os = new ObjectInputStream(fs);) {
-                userList = (List<User>)os.readObject();
+                userList.setUserList((List<User>)os.readObject());
             } catch (IOException | ClassNotFoundException ex) {
                 Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else{
-            userList.add(new User("user1", "user1"));
-            userList.add(new User("user2", "user2"));
-            userList.add(new User("admin", "admin"));
+            userList.addUser(new User("user1", "user1"));
+            userList.addUser(new User("user2", "user2"));
+            userList.addUser(new User("admin", "admin"));
         }
     }
     

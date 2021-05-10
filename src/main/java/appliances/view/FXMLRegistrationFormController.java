@@ -7,8 +7,8 @@ package appliances.view;
 
 import static appliances.Dialogs.*;
 import appliances.MainApp;
+import static appliances.MainApp.userList;
 import appliances.model.User;
-import static appliances.model.UserModel.userList;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,11 +43,11 @@ public class FXMLRegistrationFormController implements Initializable {
     @FXML
     void registrationButtonPushed() throws IOException {
         User newUser = new User(userNameField.getText(), passwordField.getText());
-        if(userList.contains(newUser)){
+        if(userList.getUserList().contains(newUser)){
             errorAlert("Ez a felhasználó már létezik!", "Adj meg másik felhasználónevet, vagy jelentkezz be!");
         }
         else{
-            userList.add(newUser);
+            userList.addUser(newUser);
             infoAlert("Mentve", "Sikeres regisztráció!", "A megadott felhasználónevet és jelszót elmentettük, jelentkezz be az alkalmazás használatához!");
             cancelButtonPushed();
         }

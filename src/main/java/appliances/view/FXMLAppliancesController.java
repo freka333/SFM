@@ -8,6 +8,7 @@ package appliances.view;
 import static appliances.Dialogs.errorAlert;
 import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
+import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
 import java.net.URL;
@@ -57,7 +58,7 @@ public class FXMLAppliancesController implements Initializable {
 
     @FXML
     void closeButtonPushed() throws Exception {
-        if(MainApp.activeUser.equals("admin"))
+        if(userList.getActiveUser().equals("admin"))
             MainApp.setRoot("FXMLAdminPage");
         else
             MainApp.setRoot("FXMLUserPage");
@@ -77,7 +78,7 @@ public class FXMLAppliancesController implements Initializable {
         else{
             try {
                 int price = Integer.parseInt(priceValue);
-                appliance = new Appliance(ID, MainApp.activeUser, nameTxt, catTxt, price, statusTxt, commentTxt);
+                appliance = new Appliance(ID, userList.getActiveUser(), nameTxt, catTxt, price, statusTxt, commentTxt);
                 ApplianceModel.appliancesList.add(appliance);
                 infoAlert("Mentve", null, nameTxt + " sikeresen mentve!");
                 closeButtonPushed();
