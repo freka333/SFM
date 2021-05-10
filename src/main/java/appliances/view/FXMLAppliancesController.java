@@ -8,6 +8,7 @@ package appliances.view;
 import static appliances.Dialogs.errorAlert;
 import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
+import static appliances.MainApp.applianceList;
 import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
@@ -79,7 +80,7 @@ public class FXMLAppliancesController implements Initializable {
             try {
                 int price = Integer.parseInt(priceValue);
                 appliance = new Appliance(ID, userList.getActiveUser(), nameTxt, catTxt, price, statusTxt, commentTxt);
-                ApplianceModel.appliancesList.add(appliance);
+                applianceList.addAppliance(appliance);
                 infoAlert("Mentve", null, nameTxt + " sikeresen mentve!");
                 closeButtonPushed();
             } catch (NumberFormatException ex) {

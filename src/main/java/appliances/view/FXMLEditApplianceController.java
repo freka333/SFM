@@ -8,9 +8,9 @@ package appliances.view;
 import static appliances.Dialogs.errorAlert;
 import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
+import static appliances.MainApp.applianceList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
-import static appliances.model.ApplianceModel.appliancesList;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -74,7 +74,7 @@ public class FXMLEditApplianceController implements Initializable {
         else{
             try {
                 int price = Integer.parseInt(priceValue);
-                for(Appliance a : appliancesList)
+                for(Appliance a : applianceList.getAppList())
                     if(IDnumber.getText().equals(a.getId())){
                         a.setName(nameTxt);
                         a.setCategory(catTxt);
@@ -100,7 +100,7 @@ public class FXMLEditApplianceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         IDnumber.setText(ApplianceModel.currentId);
-        for(Appliance a : appliancesList)
+        for(Appliance a : applianceList.getAppList())
             if(IDnumber.getText().equals(a.getId())){
                 titleLabel.setText(a.getName() + " szerkesztése");
                 nameInput.setText(a.getName());

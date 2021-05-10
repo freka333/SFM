@@ -7,10 +7,10 @@ package appliances.view;
 
 import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
+import static appliances.MainApp.applianceList;
 import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
-import static appliances.model.ApplianceModel.appliancesList;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -78,9 +78,9 @@ public class FXMLEditableItemController implements Initializable {
     
     @FXML
     void deleteButtonPushed() {
-        for(Appliance a : appliancesList)
+        for(Appliance a : applianceList.getAppList())
             if(this.id.getText().substring(1).equals(a.getId())){
-                appliancesList.remove(a);
+                applianceList.deleteAppliance(a);
                 break;
             }
         infoAlert("Törölve!", null, "Az elem törölve, kérlek, frissítsd a táblázatot!");

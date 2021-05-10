@@ -5,10 +5,10 @@
  */
 package appliances;
 
+import static appliances.MainApp.applianceList;
 import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import appliances.model.ApplianceModel;
-import static appliances.model.ApplianceModel.appliancesList;
 import appliances.model.User;
 import appliances.model.UserModel;
 import java.io.File;
@@ -17,7 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,7 +55,7 @@ public class SerializationManagement {
     public static void applianceSerialisation(){
         try (FileOutputStream fs = new FileOutputStream("files/appliances.ser");
              ObjectOutputStream os = new ObjectOutputStream(fs);) {
-            os.writeObject(appliancesList);
+            os.writeObject(applianceList.getAppList());
         } catch (IOException ex){
             Logger.getLogger(ApplianceModel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -67,13 +66,13 @@ public class SerializationManagement {
         if(tempFile.exists()){
             try (FileInputStream fs = new FileInputStream("files/appliances.ser");
                  ObjectInputStream os = new ObjectInputStream(fs);) {
-                appliancesList = (List<Appliance>)os.readObject();
+                applianceList.setAppList((List<Appliance>)os.readObject());
             } catch (IOException | ClassNotFoundException ex) {
                 Logger.getLogger(ApplianceModel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else{
-            appliancesList.add(new Appliance("1", "admin", "Porszívó", "háztartási eszköz", 2000, "bérelhető", ""));
+            applianceList.addAppliance(new Appliance("1", "admin", "Porszívó", "háztartási eszköz", 2000, "bérelhető", ""));
             applianceSerialisation();
         }
     }

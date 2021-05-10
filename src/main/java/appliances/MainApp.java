@@ -17,12 +17,14 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     public static UserModel userList;
+    public static ApplianceModel applianceList;
     private static Scene scene;
     
     @Override
     public void init()throws Exception{
+        applianceList = new ApplianceModel();
         applianceDeserialisation();
-        for(Appliance a : ApplianceModel.appliancesList){
+        for(Appliance a : applianceList.getAppList()){
             System.out.println(a);
         }
         userList = new UserModel();
