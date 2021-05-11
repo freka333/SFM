@@ -29,42 +29,40 @@ import javafx.scene.layout.VBox;
 public class FXMLRentedAppliancesController implements Initializable {
 
     @FXML
-    private Button newApplianceButton;
-
-    @FXML
     private VBox itemsLayout;
 
     @FXML
     private Button logoutButton;
-
-    @FXML
-    private Button sharedApplianceButton;
     
     @FXML
     private Button applistButton;
     
     @FXML
-    void applistButtonPushed() {
-
+    void applistButtonPushed() throws IOException {
+        MainApp.setRoot("FXMLUserPage");
     }
 
     @FXML
     void logoutButtonPushed() throws Exception {
         MainApp.setRoot("FXMLLoginPage");
     }
-
-    @FXML
-    void newApplianceButtonPushed() throws Exception {
-        MainApp.setRoot("FXMLAppliances");
-    }
-    
-    @FXML
-    void sharedApplianceButtonPushed() throws Exception {
-        MainApp.setRoot("FXMLUsersOwnAppliance");
-    }
     
     public void update(){
         itemsLayout.getChildren().clear();
+        for(Appliance a : applianceList.getAppList()){
+            if(a.getRenter().equals(userList.getActiveUser())){
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
+                try {
+                    Pane pane = loader.load();
+                    FXMLEditableItemController item = loader.getController();
+                    item.setData(a, "nothing");
+                    itemsLayout.getChildren().add(pane);
+                } catch (IOException ex) {
+                    Logger.getLogger(FXMLUserPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
     /**
      * Initializes the controller class.

@@ -5,9 +5,7 @@
  */
 package appliances.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;;
 import java.util.Objects;
 
 /**
@@ -17,19 +15,10 @@ import java.util.Objects;
 public class User implements Serializable{
     private String userName;
     private String password;
-    private List<Appliance> rentedAppliances = new ArrayList();
-    private List<Appliance> myAppliances = new ArrayList();
-    
+
     public User(String userName, String password){
         this.userName = userName;
         this.password = password;
-    }
-    
-    public User(String userName, String password, List<Appliance> rentedApp, List<Appliance>myApp){
-        this.userName = userName;
-        this.password = password;
-        this.rentedAppliances = rentedApp;
-        this.myAppliances = myApp;
     }
 
     public String getUserName() {
@@ -40,28 +29,12 @@ public class User implements Serializable{
         return password;
     }
 
-    public List<Appliance> getReservedAppliances() {
-        return rentedAppliances;
-    }
-
-    public List<Appliance> getMyAppliances() {
-        return myAppliances;
-    }
-
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setReservedAppliances(List<Appliance> reservedAppliances) {
-        this.rentedAppliances = reservedAppliances;
-    }
-
-    public void setMyAppliances(List<Appliance> myAppliances) {
-        this.myAppliances = myAppliances;
     }
 
     @Override
@@ -88,11 +61,9 @@ public class User implements Serializable{
         return true;
     }
     
-    
-
     @Override
     public String toString() {
-        return "User{" + "userName=" + userName + ", password=" + password + ", reservedAppliances=" + rentedAppliances + ", myAppliances=" + myAppliances + '}';
+        return "User{" + "userName=" + userName + ", password=" + password + '}';
     }
     
     

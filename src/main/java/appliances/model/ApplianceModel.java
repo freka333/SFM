@@ -16,7 +16,6 @@ import java.util.List;
 public class ApplianceModel {
     private List<Appliance> appList = new ArrayList();
     private Appliance currentApp = new Appliance();
-    //public static String currentId;
 
     public List<Appliance> getAppList() {
         return appList;
@@ -42,6 +41,14 @@ public class ApplianceModel {
         for(Appliance a : this.appList){
             if(currentApp.getId().equals(a.getId())){
                 a = currentApp;
+            }
+        }
+    }
+    
+    public void editAppliance(Appliance current){
+        for(Appliance a : this.appList){
+            if(current.getId().equals(a.getId())){
+                a = current;
             }
         }
     }

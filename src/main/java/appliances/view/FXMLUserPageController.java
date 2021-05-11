@@ -54,8 +54,8 @@ public class FXMLUserPageController implements Initializable {
     }
 
     @FXML
-    void rentedAppsButtonPushed() {
-
+    void rentedAppsButtonPushed() throws Exception {
+        MainApp.setRoot("FXMLRentedAppliances");
     }
     
     @FXML
@@ -66,7 +66,7 @@ public class FXMLUserPageController implements Initializable {
     public void update(){
         itemsLayout.getChildren().clear();
         for(Appliance a : applianceList.getAppList()){
-            if(!a.getOwner().equals(userList.getActiveUser())){
+            if(!a.getOwner().equals(userList.getActiveUser()) && a.getRenter().equals("")){
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
                 try {

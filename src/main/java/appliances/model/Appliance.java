@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class Appliance implements Serializable{
     private String id;
     private String owner;
+    private String renter;
     private String name;
     private String category;
     private int price;
@@ -24,9 +25,10 @@ public class Appliance implements Serializable{
         
     }
     
-    public Appliance(String id, String owner, String name, String category, int price, String status, String comment) {
+    public Appliance(String id, String owner, String renter, String name, String category, int price, String status, String comment) {
         this.id = id;
         this.owner = owner;
+        this.renter = renter;
         this.name = name;
         this.category = category;
         this.price = price;
@@ -61,6 +63,10 @@ public class Appliance implements Serializable{
     public String getComment() {
         return comment;
     }
+    
+    public String getRenter() {
+        return renter;
+    }
 
     public void setOwner(String owner){
         this.owner = owner;
@@ -88,9 +94,13 @@ public class Appliance implements Serializable{
     public void setComment(String comment) {
         this.comment = comment;
     }
+    
+    public void setRenter(String renter) {
+        this.renter = renter;
+    }
 
     @Override
     public String toString() {
-        return "Appliance{" + "id=" + id + ", owner=" + owner + ", name=" + name + ", category=" + category + ", status=" + status + ", price=" + price + ", comment=" + comment + '}';
+        return "Appliance{" + "id=" + id + ", owner=" + owner + ", renter=" + renter + ", name=" + name + ", category=" + category + ", status=" + status + ", price=" + price + ", comment=" + comment + '}';
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * @author freka333
  */
 public class UserModel {
-    private List<User> userList = new ArrayList();    
+    private List<User> userList = new ArrayList();
     private String activeUser = "";
 
     public List<User> getUserList() {

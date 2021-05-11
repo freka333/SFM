@@ -15,12 +15,12 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="rentedAppsButton" layoutX="196.0" layoutY="19.0" mnemonicParsing="false" onAction="#rentedAppsButtonPushed" text="Bérelt eszközeim">
+      <Button fx:id="rentedAppsButton" layoutX="172.0" layoutY="19.0" mnemonicParsing="false" onAction="#rentedAppsButtonPushed" text="🛒 Bérelt eszközeim">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="newApplianceButton" layoutX="501.0" layoutY="19.0" mnemonicParsing="false" onAction="#newApplianceButtonPushed" text="Saját eszköz megosztása">
+      <Button fx:id="newApplianceButton" layoutX="497.0" layoutY="19.0" mnemonicParsing="false" onAction="#newApplianceButtonPushed" text="🞦 Saját eszköz megosztása">
          <font>
             <Font size="14.0" />
          </font>
@@ -35,7 +35,7 @@
          </children>
       </Pane>
       <Button fx:id="logoutButton" layoutX="602.0" layoutY="515.0" mnemonicParsing="false" onAction="#logoutButtonPushed" text="Kijelentkezés" />
-      <Button fx:id="sharedApplianceButton" layoutX="333.0" layoutY="19.0" mnemonicParsing="false" onAction="#sharedApplianceButtonPushed" text="Megosztott eszközeim">
+      <Button fx:id="sharedApplianceButton" layoutX="317.0" layoutY="19.0" mnemonicParsing="false" onAction="#sharedApplianceButtonPushed" text="📡 Megosztott eszközeim">
          <font>
             <Font size="14.0" />
          </font>

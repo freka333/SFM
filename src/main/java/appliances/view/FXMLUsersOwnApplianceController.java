@@ -29,12 +29,6 @@ import javafx.scene.layout.VBox;
 public class FXMLUsersOwnApplianceController implements Initializable {
 
     @FXML
-    private Button rentedAppsButton;
-
-    @FXML
-    private Button newApplianceButton;
-
-    @FXML
     private VBox itemsLayout;
 
     @FXML
@@ -46,7 +40,6 @@ public class FXMLUsersOwnApplianceController implements Initializable {
     @FXML
     void appliancesButtonPushed() throws IOException {
         MainApp.setRoot("FXMLUserPage");
-        
     }
 
     @FXML
@@ -54,16 +47,6 @@ public class FXMLUsersOwnApplianceController implements Initializable {
         MainApp.setRoot("FXMLLoginPage");
     }
 
-    @FXML
-    void newApplianceButtonPushed() throws Exception {
-        MainApp.setRoot("FXMLAppliances");
-    }
-
-    @FXML
-    void rentedAppsButtonPushed() {
-
-    }
-    
     public void update(){
         itemsLayout.getChildren().clear();
         for(Appliance a : applianceList.getAppList()){

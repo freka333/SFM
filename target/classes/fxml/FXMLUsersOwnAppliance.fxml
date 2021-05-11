@@ -15,16 +15,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="rentedAppsButton" layoutX="248.0" layoutY="19.0" mnemonicParsing="false" onAction="#rentedAppsButtonPushed" text="Bérelt eszközeim">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="newApplianceButton" layoutX="501.0" layoutY="19.0" mnemonicParsing="false" onAction="#newApplianceButtonPushed" text="Saját eszköz megosztása">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <Pane layoutX="12.0" layoutY="63.0" prefHeight="442.0" prefWidth="675.0">
          <children>
             <ScrollPane prefHeight="442.0" prefWidth="675.0">
@@ -35,7 +25,7 @@
          </children>
       </Pane>
       <Button fx:id="logoutButton" layoutX="602.0" layoutY="515.0" mnemonicParsing="false" onAction="#logoutButtonPushed" text="Kijelentkezés" />
-      <Button fx:id="appliancesButton" layoutX="379.0" layoutY="19.0" mnemonicParsing="false" onAction="#appliancesButtonPushed" text="Eszközök listája">
+      <Button fx:id="appliancesButton" layoutX="553.0" layoutY="19.0" mnemonicParsing="false" onAction="#appliancesButtonPushed" text="🗍 Eszközök listája">
          <font>
             <Font size="14.0" />
          </font>

@@ -66,26 +66,31 @@ public class FXMLEditableItemController implements Initializable {
             editButton.setVisible(true);
             deleteButton.setVisible(true);
         }
-        else{
+        else if(type.equals("rent")){
             reserveButton.setVisible(true);
+            editButton.setVisible(false);
+            deleteButton.setVisible(false);
+        }
+        else{
+            reserveButton.setVisible(false);
             editButton.setVisible(false);
             deleteButton.setVisible(false);
         }
     }
     
     @FXML
-    void reserveButtonPushed() {
-        
+    void reserveButtonPushed() throws IOException {
+        me.setRenter(userList.getActiveUser());
+        applianceList.editAppliance(me);
+        infoAlert("Sikeres foglalás", null, me.getName() + " eszközt sikeresen lefoglaltad!");
+        pageRefresh();
     }
     
     @FXML
     void deleteButtonPushed() throws IOException {
         applianceList.deleteAppliance(me);
         infoAlert("Törölve!", null, me.getName() + " elem törölve!");
-        if(userList.getActiveUser().equals("admin"))
-            MainApp.setRoot("FXMLAdminPage");
-        else
-            MainApp.setRoot("FXMLUserPage");
+        pageRefresh();
     }
 
     @FXML
@@ -94,6 +99,12 @@ public class FXMLEditableItemController implements Initializable {
         MainApp.setRoot("FXMLEditAppliance");
     }
     
+    void pageRefresh() throws IOException{
+        if(userList.getActiveUser().equals("admin"))
+            MainApp.setRoot("FXMLAdminPage");
+        else
+            MainApp.setRoot("FXMLUserPage");
+    }
 
     /**
      * Initializes the controller class.

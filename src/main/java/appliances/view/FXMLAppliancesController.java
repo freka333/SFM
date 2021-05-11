@@ -79,7 +79,7 @@ public class FXMLAppliancesController implements Initializable {
         else{
             try {
                 int price = Integer.parseInt(priceValue);
-                appliance = new Appliance(ID, userList.getActiveUser(), nameTxt, catTxt, price, statusTxt, commentTxt);
+                appliance = new Appliance(ID, userList.getActiveUser(), "", nameTxt, catTxt, price, statusTxt, commentTxt);
                 applianceList.addAppliance(appliance);
                 infoAlert("Mentve", null, nameTxt + " sikeresen mentve!");
                 closeButtonPushed();
