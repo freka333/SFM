@@ -66,4 +66,9 @@ public class ApplianceModel {
         return Integer.toString(id + 1);
     }
 
+    @Override
+    public String toString() {
+        return "ApplianceModel{" + "appList=" + appList + ", currentApp=" + currentApp + '}';
+    }
+
 }
