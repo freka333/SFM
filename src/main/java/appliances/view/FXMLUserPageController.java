@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -42,6 +43,9 @@ public class FXMLUserPageController implements Initializable {
 
     @FXML
     private Button sharedApplianceButton;
+    
+    @FXML
+    private Label userLabel;
 
     @FXML
     void logoutButtonPushed() throws Exception {
@@ -86,6 +90,7 @@ public class FXMLUserPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         update();
+        userLabel.setText("👤" + userList.getActiveUser());
     }    
     
 }

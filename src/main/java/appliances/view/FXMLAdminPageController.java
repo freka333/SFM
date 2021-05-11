@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
 /**
@@ -35,6 +36,9 @@ public class FXMLAdminPageController implements Initializable {
     
     @FXML
     private VBox itemsLayout;
+    
+    @FXML
+    private Label userLabel;
     
     @FXML
     void newApplianceButtonPushed() throws Exception{
@@ -55,7 +59,10 @@ public class FXMLAdminPageController implements Initializable {
                 try {
                     Pane pane = loader.load();
                     FXMLEditableItemController item = loader.getController();
-                    item.setData(a, "editable");
+                    if(a.getRenter().equals(""))
+                        item.setData(a, "editable");
+                    else
+                        item.setData(a, "reserved");
                     itemsLayout.getChildren().add(pane);
                 } catch (IOException ex) {
                     Logger.getLogger(FXMLAdminPageController.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,6 +77,7 @@ public class FXMLAdminPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         update();
+        userLabel.setText("👤" + userList.getActiveUser());
     }    
     
 }

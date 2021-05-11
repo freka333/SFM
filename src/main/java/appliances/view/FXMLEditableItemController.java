@@ -24,7 +24,7 @@ import javafx.scene.control.Label;
  * @author freka333
  */
 public class FXMLEditableItemController implements Initializable {
-    Appliance me = new Appliance();
+    Appliance thisApp = new Appliance();
     
     @FXML
     private Label id;
@@ -43,7 +43,7 @@ public class FXMLEditableItemController implements Initializable {
 
     @FXML
     private Label price;
-
+    
     @FXML
     private Button editButton;
 
@@ -53,49 +53,55 @@ public class FXMLEditableItemController implements Initializable {
     @FXML
     private Button reserveButton;
     
+    @FXML
+    private Button rentedButton;
+    
     public void setData(Appliance appliance, String type){
-        me = appliance;
-        id.setText("#" + me.getId());
-        name.setText(me.getName());
-        category.setText(me.getCategory());
-        status.setText(me.getStatus());
-        price.setText(Integer.toString(me.getPrice()) + " Ft");
-        comment.setText(me.getComment());
+        thisApp = appliance;
+        id.setText("#" + thisApp.getId());
+        name.setText(thisApp.getName());
+        category.setText(thisApp.getCategory());
+        status.setText(thisApp.getStatus());
+        price.setText(Integer.toString(thisApp.getPrice()) + " Ft");
+        comment.setText(thisApp.getComment());
         if(type.equals("editable")){
             reserveButton.setVisible(false);
             editButton.setVisible(true);
             deleteButton.setVisible(true);
+            rentedButton.setVisible(false);
         }
         else if(type.equals("rent")){
             reserveButton.setVisible(true);
             editButton.setVisible(false);
             deleteButton.setVisible(false);
+            rentedButton.setVisible(false);
         }
         else{
             reserveButton.setVisible(false);
             editButton.setVisible(false);
             deleteButton.setVisible(false);
+            rentedButton.setVisible(true);
         }
     }
     
     @FXML
     void reserveButtonPushed() throws IOException {
-        me.setRenter(userList.getActiveUser());
-        applianceList.editAppliance(me);
-        infoAlert("Sikeres foglalás", null, me.getName() + " eszközt sikeresen lefoglaltad!");
+        thisApp.setRenter(userList.getActiveUser());
+        applianceList.editAppliance(thisApp);
+        infoAlert("Sikeres foglalás", null, thisApp.getName() + " eszközt sikeresen lefoglaltad!");
         pageRefresh();
     }
     
     @FXML
     void deleteButtonPushed() throws IOException {
-        applianceList.deleteAppliance(me);
-        infoAlert("Törölve!", null, me.getName() + " elem törölve!");
+        applianceList.deleteAppliance(thisApp);
+        infoAlert("Törölve!", null, thisApp.getName() + " elem törölve!");
         pageRefresh();
     }
 
     @FXML
     void editButtonPushed() throws IOException {
-        applianceList.setCurrentApp(me);
+        applianceList.setCurrentApp(thisApp);
         MainApp.setRoot("FXMLEditAppliance");
     }
     
