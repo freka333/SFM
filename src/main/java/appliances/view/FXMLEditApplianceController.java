@@ -9,6 +9,7 @@ import static appliances.Dialogs.errorAlert;
 import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
 import static appliances.MainApp.applianceList;
+import static appliances.MainApp.userList;
 import appliances.model.Appliance;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,6 +32,9 @@ public class FXMLEditApplianceController implements Initializable {
     
     @FXML
     private AnchorPane adminPanel;
+    
+    @FXML
+    private Label statusLabel;
     
     @FXML
     private Label IDnumber;
@@ -58,7 +62,10 @@ public class FXMLEditApplianceController implements Initializable {
 
     @FXML
     void closeButtonPushed() throws Exception {
-        MainApp.setRoot("FXMLAdminPage");
+        if(userList.getActiveUser().equals("admin"))
+            MainApp.setRoot("FXMLAdminPage");
+        else
+            MainApp.setRoot("FXMLUserPage");
     }
 
     @FXML
@@ -103,6 +110,15 @@ public class FXMLEditApplianceController implements Initializable {
         priceInput.setText(Integer.toString(applianceList.getCurrentApp().getPrice()));
         statusInput.setText(applianceList.getCurrentApp().getStatus());
         commentInput.setText(applianceList.getCurrentApp().getComment());
+        if(userList.getActiveUser().equals("admin")){
+            statusLabel.setVisible(true);
+            statusInput.setVisible(true);
+        }
+        else{
+            statusLabel.setVisible(false);
+            statusInput.setVisible(false);
+            statusInput.setText("bérelhető");
+        }
     }   
     
 }

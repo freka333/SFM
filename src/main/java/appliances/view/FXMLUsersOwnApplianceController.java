@@ -60,7 +60,10 @@ public class FXMLUsersOwnApplianceController implements Initializable {
                 try {
                     Pane pane = loader.load();
                     FXMLEditableItemController item = loader.getController();
-                    item.setData(a, "editable");
+                    if(a.getStatus().equals("foglalva"))
+                        item.setData(a, "rented");
+                    else
+                        item.setData(a, "editable");
                     itemsLayout.getChildren().add(pane);
                 } catch (IOException ex) {
                     Logger.getLogger(FXMLUserPageController.class.getName()).log(Level.SEVERE, null, ex);

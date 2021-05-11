@@ -37,6 +37,9 @@ public class FXMLAppliancesController implements Initializable {
     private AnchorPane adminPanel;
     
     @FXML
+    private Label statusLabel;
+    
+    @FXML
     private Label IDnumber;
     
     @FXML
@@ -98,6 +101,15 @@ public class FXMLAppliancesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         IDnumber.setText(ApplianceModel.idGenerator());
+        if(userList.getActiveUser().equals("admin")){
+            statusLabel.setVisible(true);
+            statusInput.setVisible(true);
+        }
+        else{
+            statusLabel.setVisible(false);
+            statusInput.setVisible(false);
+            statusInput.setText("bérelhető");
+        }
     }
     
 }

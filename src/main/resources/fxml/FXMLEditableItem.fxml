@@ -56,7 +56,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="rentedButton" alignment="CENTER" contentDisplay="CENTER" layoutX="558.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="86.0" style="-fx-text-fill: black; -fx-background-color: #fff476; -fx-background-radius: 20px;" text="Bérelve">
+      <Button fx:id="rentedButton" alignment="CENTER" contentDisplay="CENTER" layoutX="558.0" layoutY="18.0" mnemonicParsing="false" onAction="#rentedButtonPushed" prefHeight="45.0" prefWidth="86.0" style="-fx-text-fill: black; -fx-background-color: #fff476; -fx-background-radius: 20px;" text="Bérelve">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

@@ -5,7 +5,7 @@
  */
 package appliances.view;
 
-import static appliances.Dialogs.infoAlert;
+import static appliances.Dialogs.*;
 import appliances.MainApp;
 import static appliances.MainApp.applianceList;
 import static appliances.MainApp.userList;
@@ -87,6 +87,7 @@ public class FXMLEditableItemController implements Initializable {
     @FXML
     void reserveButtonPushed() throws IOException {
         thisApp.setRenter(userList.getActiveUser());
+        thisApp.setStatus("foglalva");
         applianceList.editAppliance(thisApp);
         infoAlert("Sikeres foglalás", null, thisApp.getName() + " eszközt sikeresen lefoglaltad!");
         pageRefresh();
@@ -94,15 +95,32 @@ public class FXMLEditableItemController implements Initializable {
     
     @FXML
     void deleteButtonPushed() throws IOException {
-        applianceList.deleteAppliance(thisApp);
-        infoAlert("Törölve!", null, thisApp.getName() + " elem törölve!");
-        pageRefresh();
+        if(optionalALert("Törlés", null, thisApp.getName() + " eszközt biztosan törölni szeretnéd?")){
+            applianceList.deleteAppliance(thisApp);
+            infoAlert("Törölve!", null, thisApp.getName() + " elem törölve!");
+            pageRefresh();
+        }
     }
 
     @FXML
     void editButtonPushed() throws IOException {
         applianceList.setCurrentApp(thisApp);
         MainApp.setRoot("FXMLEditAppliance");
+    }
+    
+     @FXML
+    void rentedButtonPushed() throws IOException {
+        if(userList.getActiveUser().equals("admin") || userList.getActiveUser().equals(thisApp.getOwner())) {
+            infoAlert("Bérelt eszöz", null, "Ezt az eszközt jelenleg " + thisApp.getRenter() + " bérli.");
+        }
+        else
+            if(optionalALert("Bérlés visszavonása", null, "Biztos vagy benne, hogy vissza akarod mondani a bérlést?")){
+                thisApp.setRenter("");
+                thisApp.setStatus("bérelhető");
+                applianceList.editAppliance(thisApp);
+                infoAlert("Sikeres lemondás", null, thisApp.getName() + " eszköz bérlését sikeresen visszamondtad!");
+                pageRefresh();
+            }
     }
     
     void pageRefresh() throws IOException{
