@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAdminPageController">
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="700.0" style="-fx-background-color: #f5fcf9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAdminPageController">
    <children>
       <Label contentDisplay="CENTER" layoutX="297.0" layoutY="15.0" text="Eszközök" textAlignment="CENTER">
          <font>
@@ -20,12 +20,15 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="logoutButton" layoutX="603.0" layoutY="515.0" mnemonicParsing="false" onAction="#logoutButtonPushed" text="Kijelentkezés" />
+      <Button fx:id="logoutButton" layoutX="590.0" layoutY="515.0" mnemonicParsing="false" onAction="#logoutButtonPushed" style="-fx-background-color: #415a50;" text="Kijelentkezés" textFill="#f5fcf9">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <Pane layoutX="13.0" layoutY="64.0" prefHeight="442.0" prefWidth="675.0">
          <children>
             <ScrollPane prefHeight="442.0" prefWidth="675.0">
                <content>
-                  <VBox fx:id="itemsLayout" prefHeight="440.0" prefWidth="660.0" spacing="5.0">
+                  <VBox fx:id="itemsLayout" prefHeight="440.0" prefWidth="660.0" spacing="5.0" style="-fx-background-color: #bfead9;">
                      <padding>
                         <Insets left="2.0" top="2.0" />
                      </padding></VBox>

@@ -12,15 +12,15 @@
 
 <AnchorPane id="AnchorPane" maxHeight="554.0" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLLoginPageController">
    <children>
-      <ImageView fitHeight="566.0" fitWidth="717.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="566.0" fitWidth="723.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/machine1.jpg" />
+            <Image url="@../img/machine.jpg" />
          </image>
          <viewport>
             <Rectangle2D width="700.0" />
          </viewport>
       </ImageView>
-      <AnchorPane layoutX="361.0" layoutY="21.0" prefHeight="326.0" prefWidth="318.0" style="-fx-background-color: rgba(0,0,0,0.40); -fx-background-radius: 30px; -fx-border-radius: 30px;">
+      <AnchorPane layoutX="14.0" layoutY="237.0" prefHeight="308.0" prefWidth="304.0" style="-fx-background-color: rgba(0,0,0,0.50); -fx-background-radius: 30px; -fx-border-radius: 30px;">
          <children>
             <Label alignment="CENTER" layoutX="57.0" layoutY="22.0" prefHeight="40.0" prefWidth="205.0" text="EszKöz-össég" textAlignment="CENTER" textFill="#e2e0ee">
                <font>
@@ -44,7 +44,7 @@
             </Button>
             <Button fx:id="registrationButton" layoutX="99.0" layoutY="268.0" mnemonicParsing="false" onAction="#registrationButtonPushed" prefHeight="35.0" prefWidth="120.0" style="-fx-background-radius: 7px; -fx-background-color: rgba(0,0,0,0.0);" text="Regisztráció" textFill="#020e22">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font></Button>
          </children>
       </AnchorPane>

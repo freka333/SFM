@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="adminPanel" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLEditApplianceController">
+<AnchorPane id="AnchorPane" fx:id="adminPanel" prefHeight="554.0" prefWidth="700.0" style="-fx-background-color: #bfead9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLEditApplianceController">
    <children>
       <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="45.0" prefHeight="40.0" prefWidth="615.0" text="Szerkesztés" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button layoutX="314.0" layoutY="416.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="39.0" prefWidth="108.0" style="-fx-background-color: #37a24e; -fx-background-radius: 10px;" text="Mentés" textFill="WHITE">
+      <Button layoutX="314.0" layoutY="416.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="39.0" prefWidth="105.0" style="-fx-background-color: #37a24e; -fx-background-radius: 10px;" text="Mentés" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="closeButton" layoutX="616.0" layoutY="502.0" mnemonicParsing="false" onAction="#closeButtonPushed" text="Mégse">
+      <Button fx:id="closeButton" layoutX="616.0" layoutY="502.0" mnemonicParsing="false" onAction="#closeButtonPushed" style="-fx-border-color: #c8b8c7; -fx-background-color: #fbe6f9;" text="Mégse">
          <font>
             <Font size="14.0" />
          </font>

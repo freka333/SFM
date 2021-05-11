@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="adminPanel" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAppliancesController">
+<AnchorPane id="AnchorPane" fx:id="adminPanel" prefHeight="554.0" prefWidth="700.0" style="-fx-background-color: #bfead9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAppliancesController">
    <children>
       <Label layoutX="186.0" layoutY="41.0" text="Új bérelhető eszköz feltöltése">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button layoutX="282.0" layoutY="418.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="30.0" prefWidth="137.0" text="Mentés">
+      <Button layoutX="314.0" layoutY="416.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="39.0" prefWidth="105.0" style="-fx-background-radius: 10px; -fx-background-color: #37a24e;" text="Mentés" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="closeButton" layoutX="524.0" layoutY="504.0" mnemonicParsing="false" onAction="#closeButtonPushed" text="Vissza az eszközökhöz">
+      <Button fx:id="closeButton" layoutX="524.0" layoutY="504.0" mnemonicParsing="false" onAction="#closeButtonPushed" style="-fx-background-color: #fbe6f9; -fx-border-color: #c8b8c7;" text="Vissza az eszközökhöz">
          <font>
             <Font size="14.0" />
          </font>
