@@ -76,6 +76,12 @@ public class FXMLEditableItemController implements Initializable {
             deleteButton.setVisible(false);
             rentedButton.setVisible(false);
         }
+        else if(type.equals("outOfStock")){
+            reserveButton.setVisible(false);
+            editButton.setVisible(false);
+            deleteButton.setVisible(false);
+            rentedButton.setVisible(false);
+        }
         else{
             reserveButton.setVisible(false);
             editButton.setVisible(false);

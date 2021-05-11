@@ -76,7 +76,10 @@ public class FXMLUserPageController implements Initializable {
                 try {
                     Pane pane = loader.load();
                     FXMLEditableItemController item = loader.getController();
-                    item.setData(a, "rent");
+                    if(a.getStatus().equals("nincs készleten"))
+                        item.setData(a, "outOfStock");
+                    else
+                        item.setData(a, "rent");
                     itemsLayout.getChildren().add(pane);
                 } catch (IOException ex) {
                     Logger.getLogger(FXMLUserPageController.class.getName()).log(Level.SEVERE, null, ex);
