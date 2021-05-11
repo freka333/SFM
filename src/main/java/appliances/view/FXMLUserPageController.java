@@ -32,13 +32,16 @@ public class FXMLUserPageController implements Initializable {
     private Button rentedAppsButton;
 
     @FXML
-    private Button myAppsButton;
+    private Button newApplianceButton;
 
     @FXML
     private VBox itemsLayout;
 
     @FXML
     private Button logoutButton;
+
+    @FXML
+    private Button sharedApplianceButton;
 
     @FXML
     void logoutButtonPushed() throws Exception {
@@ -55,16 +58,21 @@ public class FXMLUserPageController implements Initializable {
 
     }
     
+    @FXML
+    void sharedApplianceButtonPushed() throws Exception {
+        MainApp.setRoot("FXMLUsersOwnAppliance");
+    }
+    
     public void update(){
         itemsLayout.getChildren().clear();
         for(Appliance a : applianceList.getAppList()){
-            if(a.getOwner().equals(userList.getActiveUser())){
+            if(!a.getOwner().equals(userList.getActiveUser())){
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
                 try {
                     Pane pane = loader.load();
-                    FXMLEditableItemController eic = loader.getController();
-                    eic.setData(a);
+                    FXMLEditableItemController item = loader.getController();
+                    item.setData(a, "rent");
                     itemsLayout.getChildren().add(pane);
                 } catch (IOException ex) {
                     Logger.getLogger(FXMLUserPageController.class.getName()).log(Level.SEVERE, null, ex);

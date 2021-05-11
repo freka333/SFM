@@ -18,32 +18,50 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
- * @author freka333
+ * @author User
  */
-public class FXMLAdminPageController implements Initializable {
-    
+public class FXMLUsersOwnApplianceController implements Initializable {
+
+    @FXML
+    private Button rentedAppsButton;
+
     @FXML
     private Button newApplianceButton;
-    
-    @FXML
-    private Button logoutButton;
-    
+
     @FXML
     private VBox itemsLayout;
-    
+
     @FXML
-    void newApplianceButtonPushed() throws Exception{
+    private Button logoutButton;
+
+    @FXML
+    private Button appliancesButton;
+
+    @FXML
+    void appliancesButtonPushed() throws IOException {
+        MainApp.setRoot("FXMLUserPage");
+        
+    }
+
+    @FXML
+    void logoutButtonPushed() throws Exception {
+        MainApp.setRoot("FXMLLoginPage");
+    }
+
+    @FXML
+    void newApplianceButtonPushed() throws Exception {
         MainApp.setRoot("FXMLAppliances");
     }
-    
+
     @FXML
-    void logoutButtonPushed() throws Exception{
-        MainApp.setRoot("FXMLLoginPage");
+    void rentedAppsButtonPushed() {
+
     }
     
     public void update(){
@@ -58,18 +76,17 @@ public class FXMLAdminPageController implements Initializable {
                     item.setData(a, "editable");
                     itemsLayout.getChildren().add(pane);
                 } catch (IOException ex) {
-                    Logger.getLogger(FXMLAdminPageController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FXMLUserPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
     }
- 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         update();
-    }    
+    }      
     
 }

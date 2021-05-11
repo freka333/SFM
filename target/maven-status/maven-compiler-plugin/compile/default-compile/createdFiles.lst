@@ -8,7 +8,9 @@ appliances\view\FXMLAdminPageController.class
 appliances\MainApp.class
 appliances\LoginCheck.class
 appliances\view\FXMLEditableItemController.class
+appliances\view\FXMLRentedAppliancesController.class
 appliances\view\FXMLAppliancesController.class
+appliances\view\FXMLUsersOwnApplianceController.class
 appliances\model\ApplianceModel.class
 appliances\SerializationManagement.class
 appliances\model\User.class

@@ -15,7 +15,8 @@ import java.util.List;
  */
 public class ApplianceModel {
     private List<Appliance> appList = new ArrayList();
-    public static String currentId;
+    private Appliance currentApp = new Appliance();
+    //public static String currentId;
 
     public List<Appliance> getAppList() {
         return appList;
@@ -25,8 +26,24 @@ public class ApplianceModel {
         this.appList = appliancesList;
     }
     
+    public Appliance getCurrentApp(){
+        return currentApp;
+    }
+    
+    public void setCurrentApp(Appliance currentApp){
+        this.currentApp = currentApp;
+    }
+    
     public void addAppliance(Appliance app){
         this.appList.add(app);
+    }
+
+    public void editAppliance(){
+        for(Appliance a : this.appList){
+            if(currentApp.getId().equals(a.getId())){
+                a = currentApp;
+            }
+        }
     }
     
     public void deleteAppliance(Appliance app){

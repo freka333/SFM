@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="adminPanel" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLAppliancesController">
    <children>
-      <Label layoutX="217.0" layoutY="42.0" text="Új eszköz hozzáadása">
+      <Label layoutX="186.0" layoutY="41.0" text="Új bérelhető eszköz feltöltése">
          <font>
             <Font size="28.0" />
          </font>
@@ -21,7 +21,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="closeButton" layoutX="616.0" layoutY="502.0" mnemonicParsing="false" onAction="#closeButtonPushed" text="Vissza">
+      <Button fx:id="closeButton" layoutX="524.0" layoutY="504.0" mnemonicParsing="false" onAction="#closeButtonPushed" text="Vissza az eszközökhöz">
          <font>
             <Font size="14.0" />
          </font>

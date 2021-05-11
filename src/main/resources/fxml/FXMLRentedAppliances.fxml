@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLUserPageController">
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appliances.view.FXMLRentedAppliancesController">
    <children>
-      <Label layoutX="14.0" layoutY="23.0" text="Eszközök">
+      <Label layoutX="14.0" layoutY="23.0" text="Bérelt eszközeim">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="rentedAppsButton" layoutX="196.0" layoutY="19.0" mnemonicParsing="false" onAction="#rentedAppsButtonPushed" text="Bérelt eszközeim">
+      <Button fx:id="applistButton" layoutX="209.0" layoutY="19.0" mnemonicParsing="false" onAction="#applistButtonPushed" text="Eszközök listája">
          <font>
             <Font size="14.0" />
          </font>

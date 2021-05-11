@@ -18,52 +18,54 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
- * @author freka333
+ * @author User
  */
-public class FXMLAdminPageController implements Initializable {
-    
+public class FXMLRentedAppliancesController implements Initializable {
+
     @FXML
     private Button newApplianceButton;
-    
-    @FXML
-    private Button logoutButton;
-    
+
     @FXML
     private VBox itemsLayout;
+
+    @FXML
+    private Button logoutButton;
+
+    @FXML
+    private Button sharedApplianceButton;
     
     @FXML
-    void newApplianceButtonPushed() throws Exception{
+    private Button applistButton;
+    
+    @FXML
+    void applistButtonPushed() {
+
+    }
+
+    @FXML
+    void logoutButtonPushed() throws Exception {
+        MainApp.setRoot("FXMLLoginPage");
+    }
+
+    @FXML
+    void newApplianceButtonPushed() throws Exception {
         MainApp.setRoot("FXMLAppliances");
     }
     
     @FXML
-    void logoutButtonPushed() throws Exception{
-        MainApp.setRoot("FXMLLoginPage");
+    void sharedApplianceButtonPushed() throws Exception {
+        MainApp.setRoot("FXMLUsersOwnAppliance");
     }
     
     public void update(){
         itemsLayout.getChildren().clear();
-        for(Appliance a : applianceList.getAppList()){
-            if(a.getOwner().equals(userList.getActiveUser())){
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/FXMLEditableItem.fxml"));
-                try {
-                    Pane pane = loader.load();
-                    FXMLEditableItemController item = loader.getController();
-                    item.setData(a, "editable");
-                    itemsLayout.getChildren().add(pane);
-                } catch (IOException ex) {
-                    Logger.getLogger(FXMLAdminPageController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
     }
- 
     /**
      * Initializes the controller class.
      */

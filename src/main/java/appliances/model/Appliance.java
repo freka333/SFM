@@ -20,6 +20,10 @@ public class Appliance implements Serializable{
     private String status;
     private String comment;
     
+    public Appliance(){
+        
+    }
+    
     public Appliance(String id, String owner, String name, String category, int price, String status, String comment) {
         this.id = id;
         this.owner = owner;

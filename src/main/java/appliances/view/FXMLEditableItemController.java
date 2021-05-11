@@ -10,7 +10,6 @@ import appliances.MainApp;
 import static appliances.MainApp.applianceList;
 import static appliances.MainApp.userList;
 import appliances.model.Appliance;
-import appliances.model.ApplianceModel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +24,8 @@ import javafx.scene.control.Label;
  * @author freka333
  */
 public class FXMLEditableItemController implements Initializable {
+    Appliance me = new Appliance();
+    
     @FXML
     private Label id;
 
@@ -52,14 +53,15 @@ public class FXMLEditableItemController implements Initializable {
     @FXML
     private Button reserveButton;
     
-    public void setData(Appliance appliance){
-        id.setText("#" + appliance.getId());
-        name.setText(appliance.getName());
-        category.setText(appliance.getCategory());
-        status.setText(appliance.getStatus());
-        price.setText(Integer.toString(appliance.getPrice()) + " Ft");
-        comment.setText(appliance.getComment());
-        if(userList.getActiveUser().equals("admin")){
+    public void setData(Appliance appliance, String type){
+        me = appliance;
+        id.setText("#" + me.getId());
+        name.setText(me.getName());
+        category.setText(me.getCategory());
+        status.setText(me.getStatus());
+        price.setText(Integer.toString(me.getPrice()) + " Ft");
+        comment.setText(me.getComment());
+        if(type.equals("editable")){
             reserveButton.setVisible(false);
             editButton.setVisible(true);
             deleteButton.setVisible(true);
@@ -77,18 +79,18 @@ public class FXMLEditableItemController implements Initializable {
     }
     
     @FXML
-    void deleteButtonPushed() {
-        for(Appliance a : applianceList.getAppList())
-            if(this.id.getText().substring(1).equals(a.getId())){
-                applianceList.deleteAppliance(a);
-                break;
-            }
-        infoAlert("Törölve!", null, "Az elem törölve, kérlek, frissítsd a táblázatot!");
+    void deleteButtonPushed() throws IOException {
+        applianceList.deleteAppliance(me);
+        infoAlert("Törölve!", null, me.getName() + " elem törölve!");
+        if(userList.getActiveUser().equals("admin"))
+            MainApp.setRoot("FXMLAdminPage");
+        else
+            MainApp.setRoot("FXMLUserPage");
     }
 
     @FXML
     void editButtonPushed() throws IOException {
-        ApplianceModel.currentId = this.id.getText().substring(1);
+        applianceList.setCurrentApp(me);
         MainApp.setRoot("FXMLEditAppliance");
     }
     

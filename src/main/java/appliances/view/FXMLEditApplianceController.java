@@ -10,7 +10,6 @@ import static appliances.Dialogs.infoAlert;
 import appliances.MainApp;
 import static appliances.MainApp.applianceList;
 import appliances.model.Appliance;
-import appliances.model.ApplianceModel;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -27,7 +26,9 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author freka333
  */
-public class FXMLEditApplianceController implements Initializable {    
+public class FXMLEditApplianceController implements Initializable {
+    Appliance me = new Appliance();
+    
     @FXML
     private AnchorPane adminPanel;
     
@@ -74,15 +75,12 @@ public class FXMLEditApplianceController implements Initializable {
         else{
             try {
                 int price = Integer.parseInt(priceValue);
-                for(Appliance a : applianceList.getAppList())
-                    if(IDnumber.getText().equals(a.getId())){
-                        a.setName(nameTxt);
-                        a.setCategory(catTxt);
-                        a.setPrice(price);
-                        a.setStatus(statusTxt);
-                        a.setComment(commentTxt);
-                        break;
-                    }
+                applianceList.getCurrentApp().setName(nameTxt);
+                applianceList.getCurrentApp().setCategory(catTxt);
+                applianceList.getCurrentApp().setPrice(price);
+                applianceList.getCurrentApp().setStatus(statusTxt);
+                applianceList.getCurrentApp().setComment(commentTxt);
+                applianceList.editAppliance();
                 infoAlert("Mentve", null, nameTxt + " sikeresen mentve!");
                 closeButtonPushed();
             } catch (NumberFormatException ex) {
@@ -92,24 +90,19 @@ public class FXMLEditApplianceController implements Initializable {
             }
         }
     }
-
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        IDnumber.setText(ApplianceModel.currentId);
-        for(Appliance a : applianceList.getAppList())
-            if(IDnumber.getText().equals(a.getId())){
-                titleLabel.setText(a.getName() + " szerkesztése");
-                nameInput.setText(a.getName());
-                categoryInput.setText(a.getCategory());
-                priceInput.setText(Integer.toString(a.getPrice()));
-                statusInput.setText(a.getStatus());
-                commentInput.setText(a.getComment());
-                break;
-            }
+        IDnumber.setText(applianceList.getCurrentApp().getId());
+        titleLabel.setText(applianceList.getCurrentApp().getName() + " szerkesztése");
+        nameInput.setText(applianceList.getCurrentApp().getName());
+        categoryInput.setText(applianceList.getCurrentApp().getCategory());
+        priceInput.setText(Integer.toString(applianceList.getCurrentApp().getPrice()));
+        statusInput.setText(applianceList.getCurrentApp().getStatus());
+        commentInput.setText(applianceList.getCurrentApp().getComment());
     }   
     
 }
